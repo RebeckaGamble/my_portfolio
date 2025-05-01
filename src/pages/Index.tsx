@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
 
 const Index = () => {
   useEffect(() => {
@@ -10,8 +11,7 @@ const Index = () => {
     <div className="flex flex-col min-h-screen ">
       <Navbar />
       <main className="flex-grow pt-16">
-        main content coming
-        <p className="text-foreground ">Some testing text</p>
+   <Hero />
       </main>
     </div>
   );
