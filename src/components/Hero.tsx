@@ -9,7 +9,7 @@ const Hero = () => {
     <section id="hero" className="min-h-screen flex items-center">
       <div className="container max-w-[90rem] mx-auto px-4 mb-[84px]">
         <div className="bg-gradient-to-r from-purple-400 to-pink-500 w-[250px] h-[250px] lg:hidden mx-auto p-1 rounded-full">
-          <div className="bg-white dark:bg-gray-900 p-1 rounded-full">
+          <div className="bg-white dark:bg-black/95 p-1 rounded-full">
             <img
               src="/jag.jpg"
               alt="Rebecka"
@@ -28,10 +28,10 @@ const Hero = () => {
               {t("hero.greeting")}
             </h2>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-              <span className="gradient-text">{t("hero.name")}</span>
+              <span className="purple-text-gradient ">{t("hero.name")}</span>
             </h1>
             <div className="h-12 mb-6">
-              <h3 className="text-2xl md:text-3xl font-medium animate-pulse">
+              <h3 className="text-2xl dark:text-gray-200 md:text-3xl font-medium animate-pulse">
                 {t("hero.title")}
               </h3>
             </div>
@@ -54,7 +54,7 @@ const Hero = () => {
             className="hidden lg:flex justify-center items-center"
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-300 to-pink-400 rounded-full blur-2xl opacity-20 animate-pulse"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-300 to-pink-400 rounded-full blur-2xl opacity-20  hover:animate-none animate-pulse"></div>
               <div className="bg-gradient-to-r from-purple-400 to-pink-500 p-1.5 rounded-full">
                 <div className="bg-white dark:bg-gray-900 p-1 rounded-full">
                   <img

@@ -1,17 +1,28 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import About from "../components/About";
+import Projects from "../components/Projects";
 
 const Index = () => {
+  const [active, setActive] = useState("");
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
     <div className="flex flex-col min-h-screen ">
-      <Navbar />
+      <div
+        className="bg-cover bg-no-repeat bg-center"
+        style={{ backgroundImage: 'url("./herobg.png")' }}
+      >
+        <Navbar active={active} setActive={setActive} />
+        <Hero />
+      </div>
       <main className="flex-grow pt-16">
-   <Hero />
+        <About />
+        <Projects />
       </main>
     </div>
   );

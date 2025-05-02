@@ -1,17 +1,31 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
+/* @custom-variant dark (&:where(.dark, .dark *)); */
 /* @variant dark (&:is(.dark *)) */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 @theme {
   --color-background: hsl(0, 0%, 100%);
   --color-foreground: hsl(222.2, 84%, 4.9%);
-
+  --color-tertiary: #151030;
   --card: hsl(0, 0%, 100%);
   --card-foreground: hsl(222.2, 84%, 4.9%);
 
-  --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(222.2, 84%, 4.9%);
+  --color-popover: hsl(0, 0%, 100%);
+  --color-popover-foreground: hsl(222.2, 84%, 4.9%);
 
   --color-primary: hsl(275, 100%, 60%);
   --color-primary-foreground: hsl(210, 40%, 98%);
@@ -19,43 +33,48 @@
   --color-secondary: hsl(300, 100%, 60%);
   --color-secondary-foreground: hsl(222.2, 47.4%, 11.2%);
 
-  
+  --shadow-card: 0px 35px 120px -15px #211e35;
+  --box-shadow-card: 0px 35px 120px -15px #211e35;
+
+  --screen-xs: 450px;
 }
-@layer theme {
+/* @layer theme {
   .dark {
     --color-background: hsl(222.2, 84%, 4.9%);
     --color-foreground: hsl(0, 0%, 100%);
   }
-}
+} */
 
-
-@layer base {
-
-
-  :root {
-    --color-background: hsl(0, 0%, 100%);
-    --color-foreground: hsl(222.2, 84%, 4.9%);
-
-    --color-card: hsl(0, 0%, 100%);
-    --color-card-foreground: hsl(222.2, 84%, 4.9%);
-
-    --color-popover: hsl(0, 0%, 100%);
-    --color-popover-foreground: hsl(222.2, 84%, 4.9%);
-
-    --color-primary: hsl(275, 100%, 60%);
-    --color-primary-foreground: hsl(210, 40%, 98%);
-
-    --color-secondary: hsl(300, 100%, 60%);
-    --color-secondary-foreground: hsl(222.2, 47.4%, 11.2%);
-
+@layer utilities {
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
-  
-  html {
-    scroll-behavior: smooth;
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
   }
 
-  
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.5s ease-out forwards;
+  }
 }
 
 /* Navbar animation for mobile */
@@ -72,7 +91,7 @@
 }
 
 .menu-overlay {
-  @apply fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300;
+  @apply fixed inset-0 bg-black/50 z-40 transition-opacity duration-300;
 }
 
 .menu-overlay-visible {
@@ -81,4 +100,50 @@
 
 .menu-overlay-hidden {
   @apply opacity-0 pointer-events-none;
+}
+
+.purple-text-gradient {
+  background: #9b51e0;
+  background: -webkit-linear-gradient(to top, #6a11cb, #9b51e0);
+  background: linear-gradient(to top, #6a11cb, #9b51e0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* about */
+.tech-badge {
+  @apply px-2 py-1 rounded-md text-xs font-medium;
+}
+
+.tech-react {
+  @apply bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300;
+}
+
+.tech-js {
+  @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300;
+}
+
+.tech-ts {
+  @apply bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300;
+}
+
+.tech-html {
+  @apply bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300;
+}
+
+.tech-css {
+  @apply bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300;
+}
+
+.tech-vue {
+  @apply bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300;
+}
+
+.tech-python {
+  @apply bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300;
+}
+
+.tech-node {
+  @apply bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300;
 }
