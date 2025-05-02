@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useInView } from "../../hooks/useIntersectionObserver";
+import { motion } from "framer-motion";
 import { sectionstyle as styles } from "../../assets/styles";
 import AboutCode from "./AboutCode";
 
@@ -22,8 +23,16 @@ const About = () => {
         className="container max-w-[90rem] mx-auto px-4 2xl:px-0"
         ref={sectionRef}
       >
+         <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col items-start mb-12"
+        >
+
         <h2 className={styles.sectionHeadText}>{t("about.title")}</h2>
         <h3 className={styles.sectionSubText}>{t("about.subtitle")}</h3>
+        </motion.div>
         <div className="h-[400px]"> 
 
         <AboutCode />

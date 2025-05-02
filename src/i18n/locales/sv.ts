@@ -40,4 +40,72 @@ export default {
     "line11": "    Node.js, Express "
 
   },
+  // Experience Section
+  "experience": {
+    "title": "Från studier till verklig erfarenhet",
+    "subtitle": "Lärande & Byggande",
+    "filters": {
+      "all": "Alla",
+      "work": "Arbete",
+      "education": "Utbildning"
+    },
+    "items": [
+      {
+        "type": "education",
+        "title": "AI: Grundläggande praktisk maskininlärning",
+        "company": "Mölk Utbildning",
+        "period": "Apr 2024 - Jun 2025",
+        "description": "coming.."
+      },
+      {
+        "type": "education",
+        "title": "Frontend-utvecklare",
+        "company": "Chas Academy",
+        "period": "Aug 2023 - Jun 2025",
+        "description": "coming.."
+      },
+      {
+        "type": "work",
+        "title": "Frontend-utvecklare praktik",
+        "company": "Indpro",
+        "period": "Nov 2024 - May 2025",
+        "description": "coming.."
+      },
+      {
+        "type": "education",
+        "title": "Web Developer",
+        "company": "Medieinstitutet Stockholm",
+        "period": "Sep 2021 - May 2023",
+        "description": "coming.."
+      },
+      {
+        "type": "work",
+        "title": "Frontend-utvecklare praktik",
+        "company": "Unatitech",
+        "period": "2023",
+        "description": "coming.."
+      },
+      {
+        "type": "education",
+        "title": "Accounting consultant",
+        "company": "Stockholm School of Business",
+        "period": "Aug 2019 - Jun 2021",
+        "description": "coming.."
+      },
+      {
+        "type": "work",
+        "title": "INternship",
+        "company": "MBL Redovisning & Konsulting",
+        "period": "2020",
+        "description": "coming.."
+      },
+      {
+        "type": "work",
+        "title": "Personlig assistent",
+        "company": "Modern assistans",
+        "period": "2007 - 2018",
+        "description": "coming.."
+      },
+    ]
+  },
 };

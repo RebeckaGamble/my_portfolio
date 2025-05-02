@@ -27,8 +27,8 @@ const Hero = () => {
             <h2 className="text-xl md:text-2xl font-medium text-purple-600 dark:text-purple-400 mb-2">
               {t("hero.greeting")}
             </h2>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-              <span className="purple-text-gradient ">{t("hero.name")}</span>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="purple-text-gradient">{t("hero.name")}</span>
             </h1>
             <div className="h-12 mb-6">
               <h3 className="text-2xl dark:text-gray-200 md:text-3xl font-medium animate-pulse">
@@ -41,7 +41,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
               <Button
                 asChild
-                className="bg-gradient-to-r from-purple-600 to-pink-400 hover:opacity-90 text-white px-6 py-3 rounded-md"
+                className="bg-purple-800 hover:bg-purple-800/90 text-white tracking-wider text-md px-6 py-3 rounded-md"
               >
                 <a href="#projects">{t("hero.cta")}</a>
               </Button>
@@ -54,9 +54,9 @@ const Hero = () => {
             className="hidden lg:flex justify-center items-center"
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-300 to-pink-400 rounded-full blur-2xl opacity-20  hover:animate-none animate-pulse"></div>
-              <div className="bg-gradient-to-r from-purple-400 to-pink-500 p-1.5 rounded-full">
-                <div className="bg-white dark:bg-gray-900 p-1 rounded-full">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-300 rounded-full blur-2xl opacity-20  hover:animate-none animate-pulse"></div>
+              <div className="bg-gradient-to-r from-purple-500 to-pink-200 p-1 rounded-full">
+                <div className="bg-gray-900 p-1 rounded-full">
                   <img
                     src="/jag.jpg"
                     alt="Rebecka"

@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import About from "../components/about/About";
 import Projects from "../components/Projects";
+import Experience from "../components/Experience";
 
 const Index = () => {
   const [active, setActive] = useState("");
@@ -23,6 +24,7 @@ const Index = () => {
       <main className="flex-grow pt-16">
         <About />
         <Projects />
+        <Experience />
       </main>
     </div>
   );
