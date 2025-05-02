@@ -26,4 +26,18 @@ export default {
     "tech-title": "Technologies",
     "checkProjects": "Kolla in några av mina senaste projekt"
   },
+  "aboutCode": {
+    "line1": "Namn: Rebecka Gamble",
+    "line2": "Title: Frontend-utvecklare",
+    "line3": "Språk:",
+    "line4": "  - Svenska",
+    "line5": "  - Engelska",
+    "line6": "Plats: Stockholm, Sverige",
+    "line7": "Färdigheter: ",
+    "line8": "  Frontend: ",
+    "line9": "    React, TypeScript, Tailwind CSS",
+    "line10": "  Backend: ",
+    "line11": "    Node.js, Express "
+
+  },
 };

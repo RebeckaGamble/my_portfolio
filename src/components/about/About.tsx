@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
-import { useInView } from "../hooks/useIntersectionObserver";
-import { sectionstyle as styles } from '../assets/styles'; 
+import { useInView } from "../../hooks/useIntersectionObserver";
+import { sectionstyle as styles } from "../../assets/styles";
+import AboutCode from "./AboutCode";
 
 const About = () => {
   const { t } = useTranslation();
@@ -23,6 +24,10 @@ const About = () => {
       >
         <h2 className={styles.sectionHeadText}>{t("about.title")}</h2>
         <h3 className={styles.sectionSubText}>{t("about.subtitle")}</h3>
+        <div className="h-[400px]"> 
+
+        <AboutCode />
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           {/* Image */}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
-import About from "../components/About";
+import About from "../components/about/About";
 import Projects from "../components/Projects";
 
 const Index = () => {
