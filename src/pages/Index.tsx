@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import About from "../components/about/About";
-import Projects from "../components/Projects";
+import Projects from "../components/projects/Projects";
 import Experience from "../components/Experience";
 
 const Index = () => {
@@ -23,8 +23,8 @@ const Index = () => {
       </div>
       <main className="flex-grow pt-16">
         <About />
-        <Projects />
         <Experience />
+        <Projects />
       </main>
     </div>
   );

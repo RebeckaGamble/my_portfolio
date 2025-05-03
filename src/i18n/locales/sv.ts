@@ -108,4 +108,164 @@ export default {
       },
     ]
   },
+   // Projects Section
+   "projects": {
+    "title": "Projekt",
+    "subtitle": "Mitt arbete",
+    "text": "Under mina studier har jag arbetat med olika projekt som har gett mig möjlighet att tillämpa och förbättra mina färdigheter inom både frontend och backend utveckling. Projekten har varit både individuella och i grupp, där jag har hanterat utmaningar som responsiv design, tillståndshantering, API-integration och användarupplevelseoptimering. Varje projekt har gett mig möjlighet att arbeta med moderna teknologier som React, Vue.js, Next.js och Node.js, samtidigt som jag också har stärkt min förmåga att lösa problem, anpassa mig till nya ramverk och skriva ren, underhållbar kod. Oavsett om jag bygger från grunden eller förbättrar befintliga applikationer fokuserar jag på att leverera användarvänliga, effektiva och tillgängliga lösningar.",
+    "filters": {
+      "all": "Alla",
+      "react": "React",
+      "next": "Next.js",
+      "javascript": "JavaScript",
+      // "typescript": "TypeScript",
+      // "vue": "Vue",
+      // "python": "Python"
+    },
+    "items": [
+      {
+        "title": "MovieQuest",
+        "description": "MovieQuest är en single-page applikation som hämtar och visar filmer från TheMovieDB API. Funktioner inkluderar en karusell med utvalda filmer, sök- och sorteringsalternativ, en detaljerad filmsida med recensioner samt en favoritlista.",
+        "fullDescription": "MovieQuest är en single-page-applikation som hämtar och visar filmer från TheMovieDB API. Funktioner inkluderar en karusell med utvalda filmer, sök- och sorteringsalternativ, en detaljerad filmsida med recensioner samt en favoritlista.",
+        // "technologies": ["React", "Redux", "Tailwind"],
+        "technologies": [
+          {
+            name: " React",
+            color: "blue-text-gradient",
+          },
+          {
+            name: " Redux",
+            color: "green-text-gradient",
+          },
+          {
+            name: " Tailwind",
+            color: "pink-text-gradient",
+          },
+          {
+            name: " TheMovieDB API",
+            color: "orange-text-gradient",
+          },
+        ],
+        "github": "https://github.com/RebeckaGamble/movieQuest",
+        "demo": "",
+        "image": "movieQuest.png",
+        "category": "react"
+      },
+      {
+        "title": "E-commerce",
+        "description": "E-commerce är en e-handelsplattform utvecklad i samarbete för att möjliggöra produktbläddring och köp. Funktioner inkluderar en produktkatalog, en dynamisk varukorg, en favoritsida och responsiv design.",
+        "fullDescription": "E-commerce är en e-handelsplattform utvecklad i samarbete för att möjliggöra produktbläddring och köp. Funktioner inkluderar en produktkatalog, en dynamisk varukorg, en favoritsida och responsiv design.",
+        // "technologies": [ "Next.js", "Tailwind CSS"],
+        "technologies": [
+          {
+            name: " React",
+            color: "blue-text-gradient",
+          },
+          {
+            name: " Next.js",
+            color: "green-text-gradient",
+          },
+          {
+            name: " Tailwind",
+            color: "pink-text-gradient",
+          },
+        ],
+        "github": "https://github.com/RebeckaGamble/E-handel-1",
+        "demo": "",
+        "image": "e-com.png",
+        "category": "react"
+      },
+      {
+        title: "Chas - Landing Page",
+        description:
+          "Develop an individual project to create a landing page for the school, showcasing programs, events, and contact information.",
+        "fullDescription":
+          "Develop an individual project to create a landing page for the school, showcasing programs, events, and contact information.", 
+        technologies: [
+          {
+            name: " HTML",
+            color: "blue-text-gradient",
+          },
+          {
+            name: " CSS",
+            color: "pink-text-gradient",
+          },
+          {
+            name: " JavaScript",
+            color: "green-text-gradient",
+          },
+          {
+            name: " Tailwind",
+            color: "pink-text-gradient",
+          },
+          {
+            name: " Vite",
+            color: "red-text-gradient",
+          },
+        ],
+        github: "https://github.com/RebeckaGamble/chas_landing_page",
+        demo: "https://chas-landing-page.vercel.app/",
+        image: "chas.png",
+        category: "javascript",
+      },
+      {
+        title: "ChefMate",
+        description:
+          "Develop ChefMate as a group project with UX students to provide personalized AI-generated recipes based on user preferences.",
+        "fullDescription":
+          "Develop ChefMate as a group project with UX students to provide personalized AI-generated recipes based on user preferences.", 
+        technologies: [
+          {
+            name: " Next.js",
+            color: "green-text-gradient",
+          },
+          {
+            name: " Tailwind",
+            color: "pink-text-gradient",
+          },
+          {
+            name: " OpenAI API",
+            color: "orange-text-gradient",
+          },
+          {
+            name: " Express",
+            color: "blue-text-gradient",
+          },
+          {
+            name: " MySQL",
+            color: "red-text-gradient",
+          },
+          {
+            name: " Radix UI",
+            color: "purple-text-gradient",
+          },
+        ],
+        github: "https://github.com/RebeckaGamble/open_ai_13",
+        demo: "",
+        image: "chefMate.png",
+        category: "next",
+      },
+      {
+        title: "Portfolio",
+        description:
+          "Create a Portfolio using Next.js and Tailwind",
+        "fullDescription":
+          "Create a Portfolio using Next.js and Tailwind", 
+        technologies: [
+          {
+            name: " Next.js",
+            color: "green-text-gradient",
+          },
+          {
+            name: " Tailwind",
+            color: "pink-text-gradient",
+          },
+        ],
+        github: "https://github.com/RebeckaGamble/portfolio_reb",
+        demo: "https://portfolio-reb.vercel.app/",
+        image: "portfolio.png",
+        category: "next",
+      },
+    ]
+  },
 };

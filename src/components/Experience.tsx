@@ -138,7 +138,7 @@ const Experience = () => {
           </Button>
         </div>
         <motion.div
-            ref={ref}
+          ref={ref}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           variants={containerVariants}
