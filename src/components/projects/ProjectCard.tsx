@@ -63,7 +63,7 @@ const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
             {project.description}
           </p>
         </div>
-        <div className="mt-auto pt-4 mb-4 flex flex-wrap gap-x-2">
+        <div className="mt-auto pt-4 w-[80%] flex flex-wrap gap-x-2">
           {project.technologies.map((tech, techIndex) => (
             <span key={techIndex} className={`${tech.color}`}>
               {tech.name.trim()}

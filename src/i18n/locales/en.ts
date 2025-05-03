@@ -108,6 +108,7 @@ export default {
       },
     ],
   },
+    // Projects Section
   projects: {
     title: "Projects",
     subtitle: "My Work",
@@ -249,9 +250,9 @@ export default {
       {
         title: "Portfolio",
         description:
-          "Create a Portfolio using Next.js and Tailwind",
+          "Portfolio using Next.js and Tailwind",
         "fullDescription":
-          "Create a Portfolio using Next.js and Tailwind", 
+          "Portfolio using Next.js and Tailwind", 
         technologies: [
           {
             name: " Next.js",
@@ -269,4 +270,19 @@ export default {
       },
     ],
   },
+      // Contact Section
+      
+     contact: {
+      get_in_touch: "Get in touch",
+      contact: "Contact",
+      availability: "I am available for full-time positions from Q2 2025.",
+      contact_message: "Contact me and let's talk.",
+      location: "Stockholm, Sweden",
+      connect_with_me: "Connect With Me",
+      linkedin_aria: "Visit my LinkedIn profile",
+      github_aria: "Visit my GitHub profile",
+      email_aria: "Send me an email"
+    
+  }
+  
 };

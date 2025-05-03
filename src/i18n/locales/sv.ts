@@ -268,4 +268,15 @@ export default {
       },
     ]
   },
+  "contact": {
+    "get_in_touch": "Kom i kontakt",
+    "contact": "Kontakt",
+    "availability": "Jag är tillgänglig för heltidsanställning från juni 2025.",
+    "contact_message": "Kontakta mig så pratar vi.",
+    "location": "Stockholm",
+    "connect_with_me": "",
+    "linkedin_aria": "Besök min LinkedIn-profil",
+    "github_aria": "Besök min GitHub-profil",
+    "email_aria": "Skicka mig ett e-post"
+  },
 };

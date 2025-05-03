@@ -18,9 +18,9 @@ const About = () => {
   });
 
   return (
-    <section id="about" className="section bg:slate-50 dark:bg-darkbg/50">
+    <section id="about" className="section py-20 bg:slate-50 dark:bg-[#050816] text-black dark:text-slate-200">
       <div
-        className="container max-w-[90rem] mx-auto px-4 2xl:px-0"
+        className="container max-w-[90rem] mx-auto px-4 2xl:px-0 "
         ref={sectionRef}
       >
         <motion.div

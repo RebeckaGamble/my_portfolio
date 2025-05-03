@@ -206,7 +206,7 @@ const Projects = () => {
         )}
         {visibleCount < filteredProjects.length && (
           <div className="mt-12 text-black dark:Text-white text-center">
-            <Button onClick={loadMore}>Load More Projects</Button>
+            <Button className="bg-gray-500 text-white" onClick={loadMore}>Load More Projects</Button>
           </div>
         )}
       </div>
