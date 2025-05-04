@@ -1,7 +1,7 @@
 import { Button } from "../ui/button";
 import { Project } from "./Projects";
-import github from "../../../public/tech/github1.png";
-import vercel from "../../../public/tech/vercel.png";
+import { github, vercel } from "../../assets";
+import { projectImages } from "../../assets/projects";
 
 interface ProjectCardProps {
   project: Project;
@@ -9,13 +9,21 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
+  const baseName = project.image.replace(".png", "");
+
   return (
-    <div className="green-pink-gradient rounded-2xl p-[1px] w-full max-w-[450px] sm:w-[340px]">
+    <div className="green-pink-gradient rounded-2xl p-[1px] w-full max-w-[450px] h-full sm:w-[340px]">
       <div className="relative bg-tertiary p-5 rounded-2xl h-full text-white">
         <div className="relative overflow-hidden rounded-t-2xl group">
           <div className="h-[230px]">
             <img
-              src={`/projects/${project.image}`}
+              // src={projectImages[project.image]}
+              src={projectImages[`${baseName}-800.png`]}
+              srcSet={`
+                ${projectImages[`${baseName}-400.png`]} 400w,
+                ${projectImages[`${baseName}-800.png`]} 800w,
+                ${projectImages[`${baseName}-1600.png`]} 1600w
+                  `}
               alt={project.title}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
@@ -59,7 +67,7 @@ const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
           <h3 className="text-2xl tracking-wider font-bold mb-2">
             {project.title}
           </h3>
-          <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
+          <p className="text-slate-200 dark:text-gray-300 mb-4 line-clamp-2">
             {project.description}
           </p>
         </div>
@@ -73,7 +81,7 @@ const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
         <div className="absolute bottom-2 right-2">
           <Button
             variant="link"
-            className="text-gray-600 dark:text-gray-300"
+            className="text-slate-200 dark:text-gray-300"
             onClick={onClick}
           >
             Details

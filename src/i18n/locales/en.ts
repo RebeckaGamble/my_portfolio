@@ -40,6 +40,12 @@ export default {
     line10: "  Backend: ",
     line11: "    Node.js, Express ",
   },
+  softSkills: {
+    collaboration: "Collaboration skills",
+    detailOriented: "Detail-oriented",
+    flexible: "Flexible",
+    continuousLearner: "Continuous Learner",
+  },
   // Experience Section
   experience: {
     title: "From studies to real-world experience",
@@ -108,7 +114,16 @@ export default {
       },
     ],
   },
-    // Projects Section
+  // Skills section
+  skills: {
+    title: "Skills",
+    subtitle: "Technologies I've Worked With",
+    all: "All",
+    backend: "Backend",
+    frontend: "Frontend",
+    tools: "Tools",
+  },
+  // Projects Section
   projects: {
     title: "Projects",
     subtitle: "My Work",
@@ -118,16 +133,16 @@ export default {
       react: "React",
       next: "Next.js",
       javascript: "JavaScript",
-      typescript: "TypeScript",
-      vue: "Vue",
-      python: "Python",
+      // typescript: "TypeScript",
+      // vue: "Vue",
+      // python: "Python",
     },
     items: [
       {
         title: "MovieQuest",
         description:
           "MovieQuest is a single-page application that retrieves and displays movies from TheMovieDB API. Features include a carousel showcasing selected movies, search and sorting options, a detailed movie page with reviews, and a favorites list.",
-        "fullDescription":
+        fullDescription:
           "MovieQuest is a single-page application that retrieves and displays movies from TheMovieDB API. Features include a carousel showcasing selected movies, search and sorting options, a detailed movie page with reviews, and a favorites list.",
         technologies: [
           {
@@ -156,8 +171,8 @@ export default {
         title: "E-commerce",
         description:
           "E-commerce is an e-commerce platform developed collaboratively to enable product browsing and purchasing. Features include a product catalog, a dynamic shopping cart, a favorites page, and a responsive design.",
-        "fullDescription":
-          "E-commerce is an e-commerce platform developed collaboratively to enable product browsing and purchasing. Features include a product catalog, a dynamic shopping cart, a favorites page, and a responsive design.", 
+        fullDescription:
+          "E-commerce is an e-commerce platform developed collaboratively to enable product browsing and purchasing. Features include a product catalog, a dynamic shopping cart, a favorites page, and a responsive design.",
         technologies: [
           {
             name: " React",
@@ -181,8 +196,8 @@ export default {
         title: "Chas - Landing Page",
         description:
           "Develop an individual project to create a landing page for the school, showcasing programs, events, and contact information.",
-        "fullDescription":
-          "Develop an individual project to create a landing page for the school, showcasing programs, events, and contact information.", 
+        fullDescription:
+          "Develop an individual project to create a landing page for the school, showcasing programs, events, and contact information.",
         technologies: [
           {
             name: " HTML",
@@ -214,8 +229,8 @@ export default {
         title: "ChefMate",
         description:
           "Develop ChefMate as a group project with UX students to provide personalized AI-generated recipes based on user preferences.",
-        "fullDescription":
-          "Develop ChefMate as a group project with UX students to provide personalized AI-generated recipes based on user preferences.", 
+        fullDescription:
+          "Develop ChefMate as a group project with UX students to provide personalized AI-generated recipes based on user preferences.",
         technologies: [
           {
             name: " Next.js",
@@ -249,10 +264,8 @@ export default {
       },
       {
         title: "Portfolio",
-        description:
-          "Portfolio using Next.js and Tailwind",
-        "fullDescription":
-          "Portfolio using Next.js and Tailwind", 
+        description: "Portfolio using Next.js and Tailwind",
+        fullDescription: "Portfolio using Next.js and Tailwind",
         technologies: [
           {
             name: " Next.js",
@@ -270,19 +283,17 @@ export default {
       },
     ],
   },
-      // Contact Section
-      
-     contact: {
-      get_in_touch: "Get in touch",
-      contact: "Contact",
-      availability: "I am available for full-time positions from Q2 2025.",
-      contact_message: "Contact me and let's talk.",
-      location: "Stockholm, Sweden",
-      connect_with_me: "Connect With Me",
-      linkedin_aria: "Visit my LinkedIn profile",
-      github_aria: "Visit my GitHub profile",
-      email_aria: "Send me an email"
-    
-  }
-  
+  // Contact Section
+
+  contact: {
+    title: "Get in touch",
+    subtitle: "Contact",
+    availability: "I am available for full-time positions from Q2 2025.",
+    contact_message: "Contact me and let's talk.",
+    location: "Stockholm, Sweden",
+    connect_with_me: "Connect With Me",
+    linkedin_aria: "Visit my LinkedIn profile",
+    github_aria: "Visit my GitHub profile",
+    email_aria: "Send me an email",
+  },
 };

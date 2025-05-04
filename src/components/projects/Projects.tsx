@@ -5,6 +5,7 @@ import { sectionstyle as styles } from "../../assets/styles";
 import { Button } from "../ui/button";
 import { ExternalLink } from "lucide-react";
 import ProjectCard from "./ProjectCard";
+import { projectImages } from "../../assets/projects";
 
 import {
   Dialog,
@@ -35,7 +36,7 @@ const Projects = () => {
   // const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
   const [filter, setFilter] = useState("all");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [visibleCount, setVisibleCount] = useState(3);
+  const [visibleCount, setVisibleCount] = useState(4);
   const [selectedTech, setSelectedTech] = useState<string | null>(null);
 
   const projects = t("projects.items", { returnObjects: true }) as Project[];
@@ -63,7 +64,10 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 min-h-[500px] bg-slate-900">
+    <section
+      id="projects"
+      className="py-20 min-h-[500px] bg-white dark:bg-[#050816]"
+    >
       <div className="container mx-auto px-4 max-w-[90rem] 2xl:px-0">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -73,43 +77,45 @@ const Projects = () => {
         >
           <h2 className={styles.sectionHeadText}>{t("projects.title")}</h2>
           <h3 className={styles.sectionSubText}>{t("projects.subtitle")}</h3>
-          <p className="mt-10 text-slate-800 dark:text-white text-[17px] max-w-3xl leading-[30px]">
+          <p className="mt-10 text-slate-900 dark:text-white text-[17px] max-w-3xl leading-[30px]">
             {t("projects.text")}
           </p>
         </motion.div>
 
         {/* Tech panel */}
-        <div className="flex bg-tertiary py-2.5 px-10 w-fit mx-auto justify-center items-center mb-6 ">
-          <div className="flex flex-wrap justify-center gap-2 xs:gap-3.5">
+        <div className="w-full px-4 md:px-10 lg:px-20 xl:px-[100px] py-6 rounded-lg bg-purple-100 dark:bg-[#1d1836] text-[18px] shadow-md my-10">
+          <ul className="grid grid-cols-2 sm:grid-cols-4 gap-4 lg:gap-6 xl:gap-10 font-semibold sm:gap-4 justify-center">
             {Object.entries(t("projects.filters", { returnObjects: true })).map(
               ([key, value]) => (
-                <Button
-                  key={key}
-                  variant={filter === key ? "default" : "outline"}
-                  onClick={() => setFilter(key)}
-                  className={
-                    filter === key
-                      ? "bg-gradient-to-r from-purple-400 to-pink-500 text-white"
-                      : ""
-                  }
-                >
-                  {value}
-                </Button>
+                <li key={key} onClick={() => setFilter(key)}>
+                  <Button
+                    size={"lg"}
+                    variant={filter === key ? "default" : "outline"}
+                    className={`border-none w-full cursor-pointer shadow-lg text-[16px] ${
+                      filter === key
+                        ? "bg-[#6a11cb] text-white"
+                        : "hover:bg-primary/90 hover:text-white"
+                    }`}
+                  >
+                    {value}
+                  </Button>
+                </li>
               )
             )}
-          </div>
+          </ul>
         </div>
+
         {/* Project Cards */}
         <motion.div
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 items-stretch"
         >
           {filteredProjects.slice(0, visibleCount).map((project, index) => (
             <motion.div
               key={index}
               whileHover={{ y: -5 }}
-              className="rounded-lg overflow-hidden transition-all duration-300"
+              className="rounded-lg overflow-hidden justify-center flex transition-all duration-300"
             >
               <ProjectCard
                 onClick={() => handleCardClick(project)}
@@ -124,7 +130,7 @@ const Projects = () => {
             open={!!selectedProject}
             onOpenChange={() => setSelectedProject(null)}
           >
-            <DialogContent className="xs:max-w-[600px] w-[98vw] mx-auto max-h-[680px] bg-white dark:bg-slate-900 text-black dark:text-white overflow-y-auto">
+            <DialogContent className="xs:max-w-[600px] w-full mx-auto max-h-[680px] bg-white dark:bg-slate-900 text-black dark:text-white overflow-y-auto">
               <DialogHeader>
                 <DialogTitle className="text-2xl text-start">
                   {selectedProject.title}
@@ -138,9 +144,16 @@ const Projects = () => {
                 </DialogDescription>
               </DialogHeader>
               <div className="h-full flex flex-col justify-between">
-                <div className="h-auto max-h-[300px] mb-4">
+                <div className="h-auto max-h-[300px] mb-4 border-y border-slate-200">
                   <img
-                    src={`/projects/${selectedProject.image}`}
+                    // src={projectImages[selectedProject.image]}
+                    src={projectImages[`${selectedProject.image.replace(".png", "-800.png")}`]}
+                    srcSet={`
+                      ${projectImages[`${selectedProject.image.replace(".png", "-400.png")}`]} 400w,
+                      ${projectImages[`${selectedProject.image.replace(".png", "-800.png")}`]} 800w,
+                      ${projectImages[`${selectedProject.image.replace(".png", "-1600.png")}`]} 1600w
+                    `}
+                   
                     alt={selectedProject.title}
                     className="w-full h-full object-cover rounded-md mb-6"
                   />
@@ -156,7 +169,7 @@ const Projects = () => {
                   <Button
                     asChild
                     variant="outline"
-                    className="bg-gray-800 text-white hover:animate-pulse rounded-md flex justify-center items-center cursor-pointer"
+                    className="bg-slate-900 text-white hover:animate-pulse rounded-md flex justify-center items-center cursor-pointer"
                   >
                     <a
                       href={selectedProject.github}
@@ -205,8 +218,14 @@ const Projects = () => {
           </Dialog>
         )}
         {visibleCount < filteredProjects.length && (
-          <div className="mt-12 text-black dark:Text-white text-center">
-            <Button className="bg-gray-500 text-white" onClick={loadMore}>Load More Projects</Button>
+          <div className="mt-12 w-full justify-center flex">
+            <Button
+              className="bg-tertiary dark:bg-white dark:text-tertiary text-white"
+              onClick={loadMore}
+              aria-label="Load more projects"
+            >
+              Load More Projects
+            </Button>
           </div>
         )}
       </div>

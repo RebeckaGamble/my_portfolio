@@ -6,7 +6,7 @@ import { cn } from "../../lib/utils"
 
 const Dialog = DialogPrimitive.Root
 
-const DialogTrigger = DialogPrimitive.Trigger
+// const DialogTrigger = DialogPrimitive.Trigger
 
 const DialogPortal = DialogPrimitive.Portal
 
@@ -43,7 +43,7 @@ const DialogContent = React.forwardRef<
     >
       {children}
       <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
-        <X className="h-4 w-4" />
+        <X className="h-[20px] w-[20px]" />
         <span className="sr-only">Close</span>
       </DialogPrimitive.Close>
     </DialogPrimitive.Content>
@@ -65,19 +65,19 @@ const DialogHeader = ({
 )
 DialogHeader.displayName = "DialogHeader"
 
-const DialogFooter = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
-  <div
-    className={cn(
-      "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
-      className
-    )}
-    {...props}
-  />
-)
-DialogFooter.displayName = "DialogFooter"
+// const DialogFooter = ({
+//   className,
+//   ...props
+// }: React.HTMLAttributes<HTMLDivElement>) => (
+//   <div
+//     className={cn(
+//       "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
+//       className
+//     )}
+//     {...props}
+//   />
+// )
+// DialogFooter.displayName = "DialogFooter"
 
 const DialogTitle = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Title>,
@@ -111,10 +111,10 @@ export {
   DialogPortal,
   DialogOverlay,
   DialogClose,
-  DialogTrigger,
+  // DialogTrigger,
   DialogContent,
   DialogHeader,
-  DialogFooter,
+  // DialogFooter,
   DialogTitle,
   DialogDescription,
 }

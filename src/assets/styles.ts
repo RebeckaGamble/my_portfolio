@@ -1,6 +1,6 @@
 export const sectionstyle = {
   sectionSubText:
-    "dark:text-white text-gray-900 font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]",
+    "dark:text-white text-slate-900 font-black sm:text-[50px] xs:text-[40px] text-[30px]",
   sectionHeadText:
-    "sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider",
+    "sm:text-[24px] lg:text-[28px] text-[18px] text-[#6a11cb] dark:text-[#9b51e0] font-semibold uppercase tracking-wider",
 };
