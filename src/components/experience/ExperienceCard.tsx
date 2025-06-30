@@ -21,7 +21,7 @@ const itemVariants = {
 const getIcon = (type: string) => {
   if (type === "work") {
     return (
-      <div className="w-10 h-10 flex items-center justify-center rounded-full bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300">
+      <div className="w-10 h-10 flex items-center justify-center rounded-full bg-cyan-300 dark:bg-cyan-400 text-white ">
         <svg
           className="w-6 h-6"
           fill="none"
@@ -40,7 +40,7 @@ const getIcon = (type: string) => {
   }
 
   return (
-    <div className="w-10 h-10 flex items-center justify-center rounded-full bg-pink-100 dark:bg-pink-900 text-pink-600 dark:text-pink-300">
+    <div className="w-10 h-10 flex items-center justify-center rounded-full bg-purple-400 dark:bg-purple text-white">
       <svg
         className="w-6 h-6"
         fill="none"
@@ -59,33 +59,30 @@ const getIcon = (type: string) => {
     </div>
   );
 };
-// dark:bg-[#050816]
-// bg-[#151030]
 
 const ExperienceCard: React.FC<{ item: ExperienceItem; isLast: boolean }> = ({
   item,
   isLast,
 }) => {
   return (
-    <motion.div variants={itemVariants} className="relative pl-12 pb-8">
+    <motion.div
+      variants={itemVariants}
+      className="relative pl-12 pb-8 last:pb-0"
+    >
       {!isLast && (
-        <div className="absolute left-5 top-5 -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-purple-300 to-pink-300 dark:from-purple-800 dark:to-pink-800" />
+        <div className="absolute left-5 top-5 -translate-x-1/2 h-full w-0.5 purple-gradient" />
       )}
 
       <div className="absolute left-0 top-0">{getIcon(item.type)}</div>
 
-      <div className="green-pink-gradient rounded-lg p-0.5">
-        <div className="bg-purple-50 dark:bg-tertiary rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg">
-          <h3 className="text-xl text-slate-900 dark:text-white font-bold mb-1">
+      <div className="card-gradient rounded-lg p-0.5 group hover:p-1">
+        <div className="bg-primary text-secondary-foreground rounded-lg shadow-xl p-6 group-hover dark:card-shadow dark:hover:shadow-none transition-shadow duration-300 ease-in-out hover:p-5.5 hover:shadow-2xl">
+          <h3 className="text-xl text-primary-foreground font-bold mb-1">
             {item.title}
           </h3>
-          <p className="text-[#6a11cb] dark:text-[#9b51e0] font-medium mb-2">
-            {item.company}
-          </p>
-          <p className="text-sm text-slate-900 dark:text-slate-200 mb-4">
-            {item.period}
-          </p>
-          <p className="text-slate-900 dark:text-slate-200">{item.description}</p>
+          <p className="font-medium text-lg mb-3">{item.company}</p>
+          <p className="text-sm mb-4">{item.period}</p>
+          <p className="">{item.description}</p>
         </div>
       </div>
     </motion.div>

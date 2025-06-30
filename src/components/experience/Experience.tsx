@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { useInView } from "../../hooks/useIntersectionObserver";
-import { Button } from "../ui/button";
 import { sectionstyle as styles } from "../../assets/styles";
 import ExperienceCard from "./ExperienceCard";
 
@@ -38,7 +37,7 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" className="py-20 bg-white dark:bg-[#050816]">
+    <section id="experience" className="py-20 bg-primary">
       <div className="container mx-auto max-w-[90rem] px-4 2xl:px-0">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -50,49 +49,22 @@ const Experience = () => {
           <h3 className={styles.sectionSubText}>{t("experience.subtitle")}</h3>
         </motion.div>
 
-        {/* <div className="flex flex-wrap bg-yellow-500 justify-center mb-10 gap-2"> */}
-        <div className="w-full px-4 md:px-10 lg:px-20 xl:px-[100px] py-6 rounded-lg bg-purple-100 dark:bg-[#1d1836] text-[18px] shadow-md mb-20">
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6 xl:gap-10 font-semibold tracking-wider justify-center">
-            <Button
-              variant={filter === "all" ? "default" : "outline"}
-              size={"lg"}
-              onClick={() => setFilter("all")}
-              aria-label="Show work and education"
-              className={` ${
-                filter === "all"
-                  ? "bg-[#6a11cb] text-white"
-                  : "border-none hover:bg-primary/90 hover:text-white text-[16px] cursor-pointer"
-              }`}
-            >
-              {t("experience.filters.all")}
-            </Button>
-            <Button
-              variant={filter === "work" ? "default" : "outline"}
-              size={"lg"}
-              onClick={() => setFilter("work")}
-              aria-label="Show work and internship"
-              className={
-                filter === "work"
-                  ? "bg-[#6a11cb] text-white shadow-lg text-[16px]"
-                  : "border-none hover:bg-primary/90 hover:text-white text-[16px] cursor-pointer"
-              }
-            >
-              {t("experience.filters.work")}
-            </Button>
-            <Button
-              variant={filter === "education" ? "default" : "outline"}
-              size={"lg"}
-              onClick={() => setFilter("education")}
-              aria-label="Show education"
-              className={
-                filter === "education"
-                  ? "bg-[#6a11cb] text-white shadow-lg text-[16px]"
-                  : "border-none hover:bg-primary/90 hover:text-white text-[16px] cursor-pointer"
-              }
-            >
-              {t("experience.filters.education")}
-            </Button>
-          </div>
+        <div className="w-full px-4 md:px-10 lg:px-20 xl:px-[100px] py-4 md:py-6 rounded-lg bg-card/85 dark:bg-card text-[18px]dark:shadow-md mb-20">
+          <ul className="grid grid-cols-2 sm:grid-cols-4 md:flex md:flex-wrap md:justify-evenly gap-4 lg:gap-6 xl:gap-10 font-semibold justify-center">
+            {Object.entries(
+              t("experience.filters", { returnObjects: true })
+            ).map(([key, value]) => (
+              <li key={key} onClick={() => setFilter(key)}>
+                <button
+                  className={`border-none w-full md:px-6 py-2 rounded-lg bg-inherit text-slate-90 cursor-pointer text-[16px] ${
+                    filter === key ? styles.tableBtn : styles.tableBtnNotActive
+                  }`}
+                >
+                  {value}
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
         <motion.div
           initial="hidden"
