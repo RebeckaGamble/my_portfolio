@@ -42,30 +42,49 @@ const Navbar: React.FC<NavbarProps> = ({ active, setActive }) => {
   useEffect(() => {
     const handleScrollSpy = () => {
       const scrollPos = window.scrollY + window.innerHeight / 2;
-  
-      const sectionOffsets = navLinks.map((link) => {
-        const id = link.href.replace("#", "");
-        const el = document.getElementById(id);
-        return el ? { name: link.name, top: el.offsetTop, height: el.offsetHeight } : null;
-      }).filter(Boolean) as { name: string; top: number; height: number }[];
-  
+
+      const sectionOffsets = navLinks
+        .map((link) => {
+          const id = link.href.replace("#", "");
+          const el = document.getElementById(id);
+          return el
+            ? { name: link.name, top: el.offsetTop, height: el.offsetHeight }
+            : null;
+        })
+        .filter(Boolean) as { name: string; top: number; height: number }[];
+
+      const heroEl = document.getElementById("hero");
+      if (heroEl) {
+        sectionOffsets.unshift({
+          name: "hero",
+          top: heroEl.offsetTop,
+          height: heroEl.offsetHeight,
+        });
+      }
+
       let current = active;
-  
+
       for (let i = 0; i < sectionOffsets.length; i++) {
         const section = sectionOffsets[i];
-        if (scrollPos >= section.top && scrollPos < section.top + section.height) {
+        if (
+          scrollPos >= section.top &&
+          scrollPos < section.top + section.height
+        ) {
           current = section.name;
           break;
         }
       }
-  
-      if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight - 10) {
-        current = t("nav.contact"); 
+
+      if (
+        window.innerHeight + window.scrollY >=
+        document.body.scrollHeight - 10
+      ) {
+        current = t("nav.contact");
       }
-  
+
       setActive(current);
     };
-  
+
     window.addEventListener("scroll", handleScrollSpy);
     return () => window.removeEventListener("scroll", handleScrollSpy);
   }, [navLinks, setActive]);
@@ -97,25 +116,28 @@ const Navbar: React.FC<NavbarProps> = ({ active, setActive }) => {
 
   return (
     <nav
-      className={`fixed w-full top-0 z-50 transition-all duration-300  ${
+      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 dark:bg-tertiary/90 shadow-md backdrop-blur-sm"
-          : "bg-white dark:bg-transparent"
+          ? "bg-white/90 dark:bg-secondary/90 shadow-md backdrop-blur-sm"
+          : "bg-transparent"
       }`}
     >
       <div className="max-w-[90rem] mx-auto relative px-4 2xl:px-0">
-        <div className="flex justify-between h-16 items-center">
-          <div className="green-pink-gradient p-[3px] rounded-full">
-            <div className="bg-white rounded-full p-1.5 px-2">
-              <a
-                href="#"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              >
-                <div className="text-[22px] font-bold purple-text-gradient">
-                  RG
-                </div>
-              </a>
-            </div>
+        <div className="flex justify-between h-[60px] items-center">
+          <div
+            className={`${
+              active === "hero"
+                ? "text-purple"
+                : "text-purple-foreground rounded-full"
+            } px-2 py-1.5 bg-purple-200 dark:bg-slate-200 rounded-full hover:scale-105 transition-transform duration-500`}
+          >
+            <a
+              href="#"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="text-[18px] font-bold"
+            >
+              RG
+            </a>
           </div>
 
           {/* Desktop navigation */}
@@ -130,9 +152,9 @@ const Navbar: React.FC<NavbarProps> = ({ active, setActive }) => {
                     href={link.href}
                     className={`${
                       active === link.name
-                        ? "text-[#6a11cb] dark:text-[#9b51e0]"
-                        : "dark:text-slate-200 text-slate-900"
-                    } px-3 py-2 text-lg hover:text-[#6a11cb] hover:dark:text-[#9b51e0] font-medium transition-colors`}
+                        ? "text-purple dark:text-purple-400"
+                        : "text-primary-foreground"
+                    } px-3 py-2 text-lg hover:text-purple font-medium transition-colors`}
                   >
                     {link.name}
                   </a>
@@ -149,7 +171,7 @@ const Navbar: React.FC<NavbarProps> = ({ active, setActive }) => {
                 className="cursor-pointer mx-2"
               >
                 <Globe className="h-[20px] w-[20px]" />
-                <span>{i18n.language === "en" ? "🇸🇪" : "🇬🇧"}</span>
+                <span>{i18n.language === "en" ? "SE" : "EN"}</span>
               </Button>
 
               <Button
@@ -178,7 +200,7 @@ const Navbar: React.FC<NavbarProps> = ({ active, setActive }) => {
               aria-label="Toggle language"
             >
               <Globe className="h-[20px] w-[20px]" />
-              <span className="">{i18n.language === "en" ? "🇬🇧" : "🇸🇪"}</span>
+              <span className="">{i18n.language === "en" ? "SE" : "EN"}</span>
             </Button>
 
             <Button
@@ -242,16 +264,15 @@ const Navbar: React.FC<NavbarProps> = ({ active, setActive }) => {
         >
           <div className="p-4 space-y-4">
             <div className="flex justify-between items-center">
-              {/* <div className="text-2xl font-bold purple-text-gradient">RG</div> */}
-              <div className="green-pink-gradient p-[3px] rounded-full">
-                <div className="bg-white rounded-full p-1.5 px-2">
+              <div className="purple-gradient p-[3px] rounded-full">
+                <div className="bg-white rounded-full py-1 px-1.5">
                   <a
                     href="#"
                     onClick={() =>
                       window.scrollTo({ top: 0, behavior: "smooth" })
                     }
                   >
-                    <div className="text-[22px] font-bold purple-text-gradient">
+                    <div className="text-[18px] font-bold purple-text-gradient">
                       RG
                     </div>
                   </a>

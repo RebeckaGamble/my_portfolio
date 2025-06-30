@@ -8,49 +8,52 @@ const Hero = () => {
 
   return (
     <section id="hero" className="min-h-screen flex items-center">
-      <div className="container max-w-[90rem] mx-auto px-4 mb-[84px]">
-        <div className="bg-gradient-to-r from-purple-500 to-pink-300 w-[250px] mb-6 h-[250px] lg:hidden mx-auto p-1 rounded-full">
-          <div className="bg-white w-auto h-full dark:bg-black/95 p-1 rounded-full">
+      <div className="max-w-[90rem] mx-auto px-4 2xl:px-2 mb-[84px]">
+        <div className="purple-gradient w-[250px] h-[250px] mb-6 lg:hidden mx-auto p-1 rounded-full">
+          <div className="bg-primary w-full h-auto p-1 rounded-full">
             <img
               src={jag400}
               alt="Rebecka"
-              className="w-auto h-full rounded-full object-cover"
+              className="w-auto h-full rounded-full object-cover object-center"
             />
           </div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-[1100px] mx-auto items-center">
           <motion.div
             initial={{ opacity: 0, x: "-100%" }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col lg:flex-row items-center lg:items-start text-center lg:text-left"
+            className="flex flex-col lg:flex-row items-center lg:items-center text-center lg:text-left"
           >
             {/* Line & Dot */}
-            <div className="hidden lg:flex flex-col justify-center items-center mr-6 ">
-              <div className="w-5 h-5 rounded-full bg-white" />
-              <div className="w-1 sm:h-80 lg:h-100 h-60 violet-gradient" />
+            <div className="hidden lg:flex flex-col justify-center items-center mr-6">
+              <div className="w-5 h-5 rounded-full bg-slate-400 purple-gradient" />
+              <div className="w-[3px] lg:h-100 xl:h-90 bg-gray-400 rounded-b-full" />
             </div>
             {/* Text Block */}
-            <div>
-              <h1 className="text-xl md:text-2xl font-medium text-purple-600 dark:text-purple-400 mb-2">
+            <div className="">
+              <h1 className="text-4xl md:text-5xl gap-x-2 font-bold text-primary-foreground mb-2">
                 {t("hero.greeting")}
-              </h1>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
                 <span className="purple-text-gradient">{t("hero.name")}</span>
+              </h1>
+
+              <h2 className="text-2xl mb-2 text-secondary-foreground md:text-3xl font-medium ">
+                {t("hero.greeting2")}
+                <span className="animate-pulse"> {t("hero.title")}</span>
               </h2>
-              <div className="h-12 mb-6">
-                <h3 className="text-2xl dark:text-gray-200 md:text-3xl font-medium animate-pulse">
-                  {t("hero.title")}
-                </h3>
-              </div>
-              <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0">
+
+              <h3 className="text-2xl font-bold text-primary-foreground mb-6">
+                {t("hero.greeting3")}
+              </h3>
+              <p className="text-lg md:text-xl text-secondary-foreground mb-8 max-w-xl mx-auto lg:mx-0">
                 {t("hero.description")}
               </p>
-              <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+              <div className="flex w-full justify-center items-center lg:justify-start ">
                 <Button
                   asChild
+                  size="lg"
                   aria-label="Go to projects"
-                  className="bg-[#6a11cb] hover:bg-[#6a11cb]/90 text-white tracking-wider text-md px-6 py-3 rounded-md"
+                  className="border border-purple shadow-xl bg-gradient-to-bl from-[#6a11cb] via-[#9b51e0] to-[#6a11cb] hover:bg-gradient-to-tl text-white tracking-wider w-fit text-md px-6 py-3.5 rounded-full"
                 >
                   <a href="#projects">{t("hero.cta")}</a>
                 </Button>
@@ -61,16 +64,25 @@ const Hero = () => {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="hidden lg:flex justify-center self-start"
+            className="hidden lg:flex justify-center self-center"
           >
-            <div className="relative">
-              {/* <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-300 rounded-full blur-2xl opacity-20 hover:animate-none animate-pulse"></div> */}
-              <div className="bg-gradient-to-r from-purple-500 to-pink-200 p-1 rounded-full">
-                <div className="bg-white dark:bg-gray-900 p-1 rounded-full">
+            <div className="relative group">
+              <div className="black-gradient group-hover:secondary-gradient p-0.5 rounded-full">
+                <div className="bg-primary group-hover:bg-transparent p-1 rounded-full">
                   <img
                     src={jag400}
                     alt="Rebecka"
-                    className="w-[350px] h-[350px] rounded-full object-cover"
+                    className="w-[350px] h-[350px] rounded-full object-cover group-hover:opacity-0"
+                  />
+                </div>
+              </div>
+              {/* Change on hover */}
+              <div className="absolute bg-primary p-1 inset-0 rounded-full flex items-center justify-center text-center opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-3000">
+                <div className="bg-transparent rounded-full">
+                  <img
+                    src="./pro.png"
+                    alt="Stockholm"
+                    className="w-[350px] h-[350px] rounded-full object-cover "
                   />
                 </div>
               </div>
