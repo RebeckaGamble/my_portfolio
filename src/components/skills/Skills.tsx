@@ -43,11 +43,7 @@ export const skillsData: Skill[] = [
   { id: "Tools", src: cypress, alt: "Cypress" },
 ];
 
-export type SkillCategory =
-  | "All"
-  | "Frontend"
-  | "Backend"
-  | "Tools";
+export type SkillCategory = "All" | "Frontend" | "Backend" | "Tools";
 
 const Skills = () => {
   const { t } = useTranslation();
@@ -66,15 +62,10 @@ const Skills = () => {
       ? sortedSkillsData
       : sortedSkillsData.filter((skill) => skill.id === activeCategory);
 
-  const categories: SkillCategory[] = [
-    "All",
-    "Backend",
-    "Frontend",
-    "Tools",
-  ];
+  const categories: SkillCategory[] = ["All", "Backend", "Frontend", "Tools"];
 
   return (
-    <section id="skills" className="py-20 bg-purple-50 dark:bg-[#050816]">
+    <section id="skills" className="py-20 secondary-gradient">
       <div className="w-full max-w-[90rem] mx-auto px-4 2xl:px-0">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -85,15 +76,15 @@ const Skills = () => {
           <h2 className={styles.sectionHeadText}>{t("skills.title")}</h2>
           <h3 className={styles.sectionSubText}>{t("skills.subtitle")}</h3>
         </motion.div>
-        <div className="w-full px-4 md:px-10 lg:px-20 xl:px-[100px] py-6 rounded-lg bg-white dark:bg-[#1d1836] text-slate-900 dark:text-white text-[18px] shadow-md mb-12">
-          <ul className="grid grid-cols-2 sm:grid-cols-4 gap-4 lg:gap-6 xl:gap-10 font-semibold sm:gap-4 justify-center">
+        <div className="w-full px-4 md:px-10 lg:px-20 xl:px-[100px] py-4 md:py-6 rounded-lg bg-primary dark:bg-card text-primary-foreground text-[18px] sm:shadow-md mb-12">
+          <ul className="grid grid-cols-2 sm:grid-cols-4 md:flex md:flex-wrap md:justify-evenly gap-4 lg:gap-6 xl:gap-10 font-semibold justify-center">
             {categories.map((category) => (
               <li
                 key={category}
-                className={`text-center py-3 rounded-lg border-none text-[16px] cursor-pointer shadow-lg ${
+                className={`text-center md:px-6 py-2 rounded-lg border-none text-[16px] cursor-pointer ${
                   activeCategory === category
-                    ? "bg-[#6a11cb] text-white"
-                    : "bg-purple-100 dark:bg-white dark:text-slate-900 hover:bg-primary/90 hover:text-white"
+                    ? "bg-purple-100 text-slate-900"
+                    : "hover:bg-purple-50 text-primary-foreground dark:hover:text-slate-900 transition-colors duration-900 ease-in-out "
                 }`}
                 onClick={() => handleCategoryClick(category)}
               >
@@ -101,7 +92,7 @@ const Skills = () => {
               </li>
             ))}
           </ul>
-        </div>{" "}
+        </div>
         <div className="flex flex-wrap justify-center mx-auto gap-4">
           {filteredSkills.map((skill, index) => (
             <SkillsCard
