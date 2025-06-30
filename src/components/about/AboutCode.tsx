@@ -30,7 +30,6 @@ const AboutCode = () => {
     { text: t("aboutCode.line9"), color: "text-white" },
     { text: t("aboutCode.line10"), color: "text-white" },
     { text: t("aboutCode.line11"), color: "text-white" },
-
   ];
 
   const [codeEditorRef, inView] = useInView<HTMLDivElement>({
@@ -50,6 +49,7 @@ const AboutCode = () => {
           setLines((prev) => [
             ...prev,
             { text: typedText, color: codeLines[currentIndex].color },
+
           ]);
           setCurrentIndex((prev) => prev + 1);
           setTypedText("");
@@ -88,7 +88,6 @@ const AboutCode = () => {
   return (
     <motion.div
       variants={variants}
-      //   initial="hidden"
       animate={controls}
       className="rounded-lg shadow-xl max-w-[718px]"
     >

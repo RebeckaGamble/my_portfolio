@@ -9,9 +9,12 @@ export default {
   },
   // Hero Section
   hero: {
-    greeting: "Hi, I'm",
-    name: "Rebecka Gamble",
-    title: "A Junior Frontend Developer",
+    greeting: "Hi, I'm ",
+    name: "Rebecka",
+    greeting2: "A ",
+    title: "Frontend Developer",
+    greeting3: "based in Stockholm",
+
     description:
       "I create responsive and interactive web applications using modern technologies like React, TypeScript, and Tailwind CSS.",
     cta: "View Projects",
@@ -60,57 +63,62 @@ export default {
         type: "education",
         title: "AI: Basic Practical Machine Learning",
         company: "Mölk Education",
-        period: "Apr 2024 - Jun 2025",
-        description: "coming..",
+        period: "Apr 2024 - Jul 2025",
+        description:
+          "Basic knowledge of supervised/unsupervised learning, data management, model evaluation, and neural networks. Hands-on experience with Python and libraries such as NumPy, Pandas, Matplotlib, Scikit-Learn, and Pillow in Jupyter Notebook for data analysis and machine learning applications. Trained and fine-tuned models using logistic regression and other ML techniques.",
       },
       {
         type: "education",
         title: "Frontend Developer",
         company: "Chas Academy",
         period: "Aug 2023 - Jun 2025",
-        description: "coming..",
+        description:
+          "Experience building modern web applications with React, TypeScript, Next.js, Redux Toolkit, Vite and Tailwind CSS. Also worked with backend in Node.js with Express and MySQL, including user authentication via Firestore. Experienced with version control in Git/GitHub and building responsive, component-based interfaces. Introduced to React Native, Figma, Google Analytics, Cypress and AWS.",
       },
       {
         type: "work",
         title: "Frontend Developer Intern",
         company: "Indpro",
         period: "Nov 2024 - May 2025",
-        description: "Wcoming..",
+        description:
+          "During my internship, I worked with a company where I implemented design updates in a Vue application, presented my work to team members, and collaborated directly with the owner to identify potential improvements to the website. I also explored tools like Pinia for state management and tested Lovable.",
       },
       {
         type: "education",
         title: "Web Developer",
         company: "Medieinstitutet Stockholm",
         period: "Sep 2021 - May 2023",
-        description: "coming..",
+        description:
+          "Experience with web development using PHP, WordPress, WooCommerce, HTML/CSS, React, and database technologies (including MySQL). Worked on both frontend and backend, including custom WordPress solutions and e-commerce integrations. Comfortable working in agile teams, managing tasks, and contributing to continuous workflow improvements.",
       },
       {
         type: "work",
         title: "Frontend Developer Intern",
         company: "Unatitech",
         period: "2023",
-        description: "Acoming..",
+        description:
+          "Worked directly with the client to build a frontend website from scratch using React, React i18next for internationalization, and Tailwind CSS. Participated in client meetings to gather requirements and translated their needs into a functional, responsive web application.",
       },
       {
         type: "education",
         title: "Accounting consultant",
         company: "Stockholm School of Business",
         period: "Aug 2019 - Jun 2021",
-        description: "coming..",
+        description: "",
       },
       {
         type: "work",
         title: "Internship",
         company: "MBL Redovisning & Konsulting",
         period: "2020",
-        description: "coming..",
+        description: "",
       },
       {
         type: "work",
         title: "Personal assistant",
         company: "Modern assistans",
         period: "2007 - 2018",
-        description: "coming..",
+        description: "",
       },
     ],
   },
@@ -127,17 +135,58 @@ export default {
   projects: {
     title: "Projects",
     subtitle: "My Work",
-    text: "Throughout my learning journey, I have worked on various projects that have allowed me to apply and refine my skills in front-end and back-end development. These projects range from individual builds to collaborative team efforts, where I have tackled challenges such as responsive design, state management, API integration, and user experience optimization. Each project has given me the opportunity to work with modern technologies like React, Vue.js, Next.js, and Node.js, while also strengthening my ability to problem-solve, adapt to new frameworks, and write clean, maintainable code. Whether building from scratch or improving existing applications, I focus on delivering user-friendly, efficient, and accessible solutions.",
+    details: "Details",
+    detailsBtn: "View Details",
+    viewCodeBtn: "View Code",
+    liveDemoBtn: "Live Demo",
+    loadMoreBtn: "Load More Projects",
+    showLessBtn: "Show Less Projects",
+    text: "Throughout my learning journey, I have worked on various projects that have allowed me to apply and refine my skills in front-end and back-end development.",
+    text2:
+      "These projects range from individual builds to collaborative team efforts, where I have tackled challenges such as responsive design, state management, API integration, and user experience optimization.",
+    text3:
+      "Each project has given me the opportunity to work with modern technologies like React, Vue.js, Next.js, and Node.js, while also strengthening my ability to problem-solve, adapt to new frameworks, and write clean, maintainable code.",
+    text4:
+      "Whether building from scratch or improving existing applications, I focus on delivering user-friendly, efficient, and accessible solutions.",
     filters: {
       all: "All",
       react: "React",
       next: "Next.js",
       javascript: "JavaScript",
-      // typescript: "TypeScript",
+      typescript: "TypeScript",
       // vue: "Vue",
       // python: "Python",
     },
     items: [
+      {
+        title: "SeedSync",
+        description:
+          "SeedSync helps the user plan, track and get inspiration for their cultivation.",
+        fullDescription:
+          "SeedSync is a responsive and user-friendly web app designed for small-scale growers, hobbyists, home gardeners, and allotment holders, who want to stay inspired and organized throughout their growing season. Users can log in, manage their planting tasks, track progress, and explore cultivation tips — all in one place.",
+        technologies: [
+          {
+            name: " React",
+            color: "blue-text-gradient",
+          },
+          {
+            name: " Typescript",
+            color: "green-text-gradient",
+          },
+          {
+            name: " Tailwind",
+            color: "pink-text-gradient",
+          },
+          {
+            name: " Radix",
+            color: "orange-text-gradient",
+          },
+        ],
+        github: "https://github.com/RebeckaGamble/seedSync",
+        demo: "https://seed-sync.vercel.app/",
+        image: "seedSync.png",
+        category: ["react", "typescript"],
+      },
       {
         title: "MovieQuest",
         description:
@@ -165,14 +214,14 @@ export default {
         github: "https://github.com/RebeckaGamble/movieQuest",
         demo: "",
         image: "movieQuest.png",
-        category: "react",
+        category: ["react"],
       },
       {
-        title: "E-commerce",
+        title: "GroupOne",
         description:
-          "E-commerce is an e-commerce platform developed collaboratively to enable product browsing and purchasing. Features include a product catalog, a dynamic shopping cart, a favorites page, and a responsive design.",
+          "An e-commerce platform where the user can browse, save or purchase products.",
         fullDescription:
-          "E-commerce is an e-commerce platform developed collaboratively to enable product browsing and purchasing. Features include a product catalog, a dynamic shopping cart, a favorites page, and a responsive design.",
+          "GroupOne is an e-commerce platform developed to enable product browsing and purchasing. Features include a product catalog, a dynamic shopping cart, a favorites page, and responsive design.",
         technologies: [
           {
             name: " React",
@@ -190,14 +239,13 @@ export default {
         github: "https://github.com/RebeckaGamble/E-handel-1",
         demo: "",
         image: "e-com.png",
-        category: "react",
+        category: ["react", "next"],
       },
       {
         title: "Chas - Landing Page",
-        description:
-          "Develop an individual project to create a landing page for the school, showcasing programs, events, and contact information.",
+        description: "Recreate parts of ChasAcademy's landing page.",
         fullDescription:
-          "Develop an individual project to create a landing page for the school, showcasing programs, events, and contact information.",
+          "Individual school project to create a landing page for ChasAcademy showcasing programs, events, and contact information.",
         technologies: [
           {
             name: " HTML",
@@ -223,14 +271,14 @@ export default {
         github: "https://github.com/RebeckaGamble/chas_landing_page",
         demo: "https://chas-landing-page.vercel.app/",
         image: "chas.png",
-        category: "javaScript",
+        category: ["javascript"],
       },
       {
         title: "ChefMate",
         description:
-          "Develop ChefMate as a group project with UX students to provide personalized AI-generated recipes based on user preferences.",
+          "ChefMate was a group project between some students from the Frontend and UX classes.",
         fullDescription:
-          "Develop ChefMate as a group project with UX students to provide personalized AI-generated recipes based on user preferences.",
+          "ChefMate was a group project with some students from the UX class who created the design. We used OpenAI to generate recipes based on the user's preferences.",
         technologies: [
           {
             name: " Next.js",
@@ -260,12 +308,12 @@ export default {
         github: "https://github.com/RebeckaGamble/open_ai_13",
         demo: "",
         image: "chefMate.png",
-        category: "next",
+        category: ["next"],
       },
       {
         title: "Portfolio",
-        description: "Portfolio using Next.js and Tailwind",
-        fullDescription: "Portfolio using Next.js and Tailwind",
+       description: "School project to create a portfolio using Next.js and Tailwind.",
+        fullDescription: "Created a portfolio using Next.js and Tailwind CSS.",
         technologies: [
           {
             name: " Next.js",
@@ -279,12 +327,11 @@ export default {
         github: "https://github.com/RebeckaGamble/portfolio_reb",
         demo: "https://portfolio-reb.vercel.app/",
         image: "portfolio.png",
-        category: "next",
+        category: ["next"],
       },
     ],
   },
   // Contact Section
-
   contact: {
     title: "Get in touch",
     subtitle: "Contact",
@@ -295,5 +342,15 @@ export default {
     linkedin_aria: "Visit my LinkedIn profile",
     github_aria: "Visit my GitHub profile",
     email_aria: "Send me an email",
+  },
+  credits: {
+    title: "Credits",
+    model: "3D Model:",
+    by: "by",
+    under: "under",
+  },
+  error: {
+    text: "Oops! Page not found",
+    link: "Return to home page",
   },
 };
