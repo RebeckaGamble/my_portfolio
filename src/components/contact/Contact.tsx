@@ -30,13 +30,13 @@ const Contact = () => {
             </div>
             <div className="flex flex-col gap-2 text-primary-foreground">
               <p className="flex flex-row items-center">
-                <span className="text-purple dark:text-secondary-foreground pr-2">
+                <span className="text-purple/90 dark:text-secondary-foreground pr-2">
                   <FaLocationDot size={20} />
                 </span>
                 {t("contact.location")}
               </p>
               <p className="flex flex-row items-center">
-                <span className="text-purple dark:text-secondary-foreground pr-2">
+                <span className="text-purple/90 dark:text-secondary-foreground pr-2">
                   <AiOutlineMail className="mt-1" size={20} />
                 </span>{" "}
                 rebeckagamble@hotmail.com
@@ -52,21 +52,21 @@ const Contact = () => {
                 size={28}
                 href="https://www.linkedin.com/in/rebecka-gamble-395803198"
                 icon={FaLinkedinIn}
-                className="fill-purple"
+                className="fill-purple/90"
                 ariaLabel={t("contact.linkedin_aria")}
               />
               <SocialIcon
                 size={28}
                 href="https://www.github.com/RebeckaGamble"
                 icon={FaGithub}
-                className="fill-purple"
+                className="fill-purple/90"
                 ariaLabel={t("contact.github_aria")}
               />
               <SocialIcon
                 size={28}
                 href="mailto:rebeckagamble@hotmail.com"
                 icon={AiOutlineMail}
-                className="fill-purple"
+                className="fill-purple/90"
                 ariaLabel={t("contact.email_aria")}
               />
             </div>
