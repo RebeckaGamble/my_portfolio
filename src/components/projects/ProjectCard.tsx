@@ -2,6 +2,7 @@ import { Button } from "../ui/button";
 import { Project } from "./Projects";
 import { github, vercel } from "../../assets";
 import { projectImages } from "../../assets/projects";
+import { useTranslation } from "react-i18next";
 
 interface ProjectCardProps {
   project: Project;
@@ -10,14 +11,14 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
   const baseName = project.image.replace(".png", "");
+  const { t } = useTranslation();
 
   return (
-    <div className="green-pink-gradient rounded-2xl p-[1px] w-full max-w-[450px] h-full sm:w-[340px]">
-      <div className="relative bg-tertiary p-5 rounded-2xl h-full text-white">
+    <div className="card-gradient rounded-2xl p-[1px] w-full max-w-[450px] h-full sm:max-w-[400px] ">
+      <div className="relative bg-card/85 dark:bg-card p-5 rounded-2xl h-full text-white">
         <div className="relative overflow-hidden rounded-t-2xl group">
           <div className="h-[230px]">
             <img
-              // src={projectImages[project.image]}
               src={projectImages[`${baseName}-800.png`]}
               srcSet={`
                 ${projectImages[`${baseName}-400.png`]} 400w,
@@ -28,14 +29,14 @@ const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
           </div>
-          <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <div className="absolute inset-0 bg-slate-950/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
             <Button
-              variant="secondary"
-              size="sm"
+              variant="outline"
+              size="lg"
               onClick={onClick}
-              className="transform text-white bg-gray-800 z-10 translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+              className="transform text-white bg-card/85 dark:bg-card z-10 translate-y-4 group-hover:translate-y-0 mt-4 transition-transform duration-300"
             >
-              View Details
+              {t("projects.detailsBtn")}
             </Button>
           </div>
           <div className="inset-0 justify-start flex flex-row gap-x-2 m-2 card-img_hover absolute">
@@ -67,7 +68,7 @@ const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
           <h3 className="text-2xl tracking-wider font-bold mb-2">
             {project.title}
           </h3>
-          <p className="text-slate-200 dark:text-gray-300 mb-4 line-clamp-2">
+          <p className="text-gray-light mb-4 line-clamp-2">
             {project.description}
           </p>
         </div>
@@ -81,10 +82,10 @@ const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
         <div className="absolute bottom-2 right-2">
           <Button
             variant="link"
-            className="text-slate-200 dark:text-gray-300"
+            className="text-white dark:text-slate-100"
             onClick={onClick}
           >
-            Details
+            {t("projects.details")}
           </Button>
         </div>
       </div>
