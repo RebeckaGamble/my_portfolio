@@ -9,7 +9,7 @@ export type Skill = {
 
 export default function SkillsCard({ src, alt, title }: Skill) {
   return (
-    <div className="p-3 sm:p-4 flex w-full xs:min-w-[150px] xs:max-w-[150px] sm:w-[190px] shadow-md font-medium tracking-wider bg-white dark:bg-[#edebf5] text-slate-800 rounded-xl hover:scale-105 ease-in duration-300">
+    <div className="p-3 sm:p-4 flex w-full xs:min-w-[150px] xs:max-w-[150px] sm:w-[190px] sm:max-w-[190px] shadow-md font-medium tracking-wider bg-white dark:bg-[#edebf5] text-slate-800 rounded-xl hover:scale-105 ease-in duration-300">
       <div className="flex flex-row gap-4 xs:gap-2 sm:gap-4 mx-auto xs:justify-center items-center">
         <div className="m-auto w-[34px] h-[34px]">
           <img
