@@ -11,9 +11,9 @@ export default {
   hero: {
     greeting: "Hi, I'm ",
     name: "Rebecka",
-    greeting2: "A ",
+    greeting2: " ",
     title: "Frontend Developer",
-    greeting3: "based in Stockholm",
+    greeting3: "Based in Stockholm",
 
     description:
       "I create responsive and interactive web applications using modern technologies like React, TypeScript, and Tailwind CSS.",
@@ -63,7 +63,7 @@ export default {
         type: "education",
         title: "AI: Basic Practical Machine Learning",
         company: "Mölk Education",
-        period: "Apr 2024 - Jul 2025",
+        period: "Apr 2025 - Jul 2025",
         description:
           "Basic knowledge of supervised/unsupervised learning, data management, model evaluation, and neural networks. Hands-on experience with Python and libraries such as NumPy, Pandas, Matplotlib, Scikit-Learn, and Pillow in Jupyter Notebook for data analysis and machine learning applications. Trained and fine-tuned models using logistic regression and other ML techniques.",
       },

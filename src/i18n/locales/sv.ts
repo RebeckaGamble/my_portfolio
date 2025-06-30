@@ -9,11 +9,11 @@ export default {
   },
   // Hero Section
   hero: {
-    greeting: "Hej, jag är ",
-    name: "Rebecka",
-    greeting2: "en ",
+    greeting: "Rebecka ",
+    name: "Gamble",
+    greeting2: " ",
     title: "Frontend-utvecklare",
-    greeting3: "med bas i Stockholm",
+    greeting3: "Bas i Stockholm",
 
     description:
       "Jag skapar responsiva och interaktiva webbapplikationer med moderna teknologier som React, TypeScript och Tailwind CSS.",
@@ -63,7 +63,7 @@ export default {
         type: "education",
         title: "AI: Grundläggande praktisk maskininlärning",
         company: "Mölk Utbildning",
-        period: "Apr 2024 - Jul 2025",
+        period: "Apr 2025 - Jul 2025",
         description:
           "Grundläggande kunskaper i övervakad/oövervakad inlärning, datahantering, modellutvärdering och neuronnät. Praktisk erfarenhet av Python samt bibliotek som NumPy, Pandas, Matplotlib, Scikit-Learn och Pillow i Jupyter Notebook för dataanalys och maskininlärningsapplikationer. Tränat och finjusterat modeller med logistisk regression och andra ML-tekniker.",
       },
