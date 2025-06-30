@@ -27,7 +27,7 @@ export default {
     p2: "Jag har tillämpat denna kunskap i flera projekt, där jag har arbetat både självständigt och i team, följt agila projektmetoder och använt verktyg som Trello, Jira och Notion.",
     p3: "I ett av dessa projekt samarbetade jag med UX-studenter, vilket gav värdefulla insikter i designprocessen och hur man effektivt implementerar användarcentrerade lösningar i frontendutveckling.",
     p4: "Jag har också arbetat mycket med att skapa responsiva webbplatser för att säkerställa en smidig användarupplevelse på både mobila enheter och datorer. Dessa projekt har inte bara stärkt mina tekniska färdigheter, utan också gett mig möjlighet att hantera verkliga utmaningar, arbeta i dynamiska teammiljöer och bidra till användarfokuserade utvecklingslösningar.",
-    "tech-title": "Technologies",
+    "tech-title": "Tekniker",
     checkProjects: "Kolla in några av mina senaste projekt",
   },
   aboutCode: {
@@ -125,7 +125,7 @@ export default {
   // Skills section
   skills: {
     title: "Färdigheter",
-    subTitle: "Tekniker Jag Har Arbetat Med",
+    subtitle: "Tekniker Jag Har Arbetat Med",
     all: "Alla",
     backend: "Backend",
     frontend: "Frontend",
