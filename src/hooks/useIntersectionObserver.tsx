@@ -10,8 +10,8 @@ interface UseInViewOptions {
 
 export function useInView<T extends HTMLElement>(
   options: UseInViewOptions = {}
-): [RefObject<T>, boolean] {
-  const ref = useRef<T>(null);
+): [RefObject<T | null>, boolean] {
+  const ref = useRef<T | null>(null);
   const [isIntersecting, setIsIntersecting] = useState(false);
 
   useEffect(() => {

@@ -37,24 +37,12 @@ const Projects = () => {
   const [filter, setFilter] = useState("all");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
-  const [selectedTech, setSelectedTech] = useState<string | null>(null);
 
   const projects = t("projects.items", { returnObjects: true }) as Project[];
 
   const filteredProjects = projects.filter((project) => {
-    const matchesCategory =
-      filter === "all" || project.category.includes(filter);
-
-    const matchesTech = selectedTech
-      ? // ? project.technologies.includes(selectedTech)
-        project.technologies.some(
-          (tech) =>
-            tech.name.trim().toLowerCase() === selectedTech.toLowerCase()
-        )
-      : true;
-
-    return matchesCategory && matchesTech;
-  });
+  return filter === "all" || project.category.includes(filter);
+});
 
   const toggleVisible = () => {
     if (visibleCount >= filteredProjects.length) {
