@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useInView } from "../../hooks/useIntersectionObserver";
 import { motion } from "framer-motion";
+import { getFadeInUpMotion } from "../../utils/motion";
 import { sectionstyle as styles } from "../../assets/styles";
 import { icon1, icon2, icon3, icon4 } from "../../assets";
 import AboutCode from "./AboutCode";
@@ -9,7 +10,7 @@ import AboutCard from "./AboutCard";
 const About = () => {
   const { t } = useTranslation();
 
-  const [sectionRef, inView] = useInView<HTMLDivElement>({
+  const [aboutRef, inView] = useInView<HTMLDivElement>({
     threshold: 0.1,
     triggerOnce: true,
   });
@@ -36,16 +37,12 @@ const About = () => {
   return (
     <section
       id="about"
-      className="section py-20 secondary-gradient text-primary-foreground"
+      className="py-20 secondary-gradient text-primary-foreground"
     >
-      <div
-        className="container max-w-[90rem] mx-auto px-4 2xl:px-0 "
-        ref={sectionRef}
-      >
+      <div className="w-full max-w-[90rem] mx-auto px-4 2xl:px-0 ">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          ref={aboutRef}
+          {...getFadeInUpMotion(inView)}
           className="flex flex-col items-start mb-12"
         >
           <h2 className={styles.sectionHeadText}>{t("about.title")}</h2>
@@ -58,12 +55,7 @@ const About = () => {
           </div>
           {/* Text */}
           <div>
-            <div
-              className={`space-y-4 ${
-                inView ? "animate-fade-in-up" : "opacity-0"
-              }`}
-              style={{ animationDelay: "0.2s" }}
-            >
+            <div className="space-y-4">
               <p>{t("about.p1")}</p>
               <p>{t("about.p2")}</p>
               <p>{t("about.p3")}</p>
@@ -85,17 +77,10 @@ const About = () => {
                     "Tailwind CSS",
                     "Responsive Design",
                     "Git",
-                  ].map((tech, index) => (
+                  ].map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-white dark:bg-tertiary text-sm rounded-full"
-                      style={{
-                        animationDelay: `${0.1 * index + 0.5}s`,
-                        animation: inView
-                          ? "fade-in-up 0.5s ease-out forwards"
-                          : "none",
-                        opacity: 0,
-                      }}
+                      className="px-3 py-1 bg-primary dark:bg-tertiary text-sm rounded-full"
                     >
                       {tech}
                     </span>

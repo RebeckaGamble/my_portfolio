@@ -1,5 +1,4 @@
-import jag from "./jag.jpg";
-import jag400 from "./jag-400.jpg"
+import me from "./2.jpg";
 
 import github from "./github.png";
 
@@ -34,9 +33,10 @@ import firebase from "./tech/firebase.png";
 import cypress from "./tech/cypress.svg";
 import vercel from "./tech/Vercel.png";
 
+import contact from "./contact.jpg"
+
 export {
-  jag,
-  jag400,
+  me,
   github,
   menu,
   close,
@@ -64,5 +64,6 @@ export {
   mysql,
   firebase,
   cypress,
-  vercel
+  vercel,
+  contact
 };

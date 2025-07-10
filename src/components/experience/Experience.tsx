@@ -2,47 +2,34 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { useInView } from "../../hooks/useIntersectionObserver";
+import { getFadeInUpMotion } from "../../utils/motion";
 import { sectionstyle as styles } from "../../assets/styles";
 import ExperienceCard from "./ExperienceCard";
-
-type ExperienceItem = {
-  type: string;
-  title: string;
-  company: string;
-  period: string;
-  description: string;
-};
+import { ExperienceItem } from "../../types/experienceTypes";
 
 const Experience = () => {
   const { t } = useTranslation();
   const [filter, setFilter] = useState("all");
-  const [inView] = useInView({ threshold: 0.1, triggerOnce: true });
 
   const experienceItems = t("experience.items", {
     returnObjects: true,
   }) as ExperienceItem[];
 
+  const [experienceRef, inView] = useInView<HTMLDivElement>({
+    threshold: 0.1,
+    triggerOnce: true,
+  });
+
   const filteredItems = experienceItems.filter(
     (item) => filter === "all" || item.type === filter
   );
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
   return (
     <section id="experience" className="py-20 bg-primary">
-      <div className="container mx-auto max-w-[90rem] px-4 2xl:px-0">
+      <div className="mx-auto max-w-[90rem] px-4 2xl:px-0">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          ref={experienceRef}
+          {...getFadeInUpMotion(inView)}
           className="flex flex-col items-start mb-12"
         >
           <h2 className={styles.sectionHeadText}>{t("experience.title")}</h2>
@@ -66,12 +53,7 @@ const Experience = () => {
             ))}
           </ul>
         </div>
-        <motion.div
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={containerVariants}
-          className="max-w-3xl mx-auto"
-        >
+        <div className="max-w-3xl mx-auto">
           {filteredItems.map((item, index) => (
             <ExperienceCard
               key={index}
@@ -79,7 +61,7 @@ const Experience = () => {
               isLast={index === filteredItems.length - 1}
             />
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,9 +1,9 @@
-type About = {
+type AboutCardProps = {
   title: string;
   icon: string;
 };
 
-const AboutCard = ({ title, icon }: About) => {
+const AboutCard = ({ title, icon }: AboutCardProps) => {
   return (
     <div className="xs:w-[250px] group rounded-[20px] max-w-[250px] w-full">
       <div className="w-full card-gradient p-[1px] rounded-[20px] dark:shadow-card shadow-2xl">

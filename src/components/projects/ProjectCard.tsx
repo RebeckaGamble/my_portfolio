@@ -1,16 +1,16 @@
 import { Button } from "../ui/button";
-import { Project } from "./Projects";
 import { github, vercel } from "../../assets";
 import { projectImages } from "../../assets/projects";
 import { useTranslation } from "react-i18next";
+import { Project } from "../../types/projectTypes";
 
-interface ProjectCardProps {
+interface IProjectCardProps {
   project: Project;
   onClick: () => void;
 }
 
-const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
-  const baseName = project.image.replace(".png", "");
+const ProjectCard = ({ project, onClick }: IProjectCardProps) => {
+  const image400 = project.image.replace(".png", "-400.png");
   const { t } = useTranslation();
 
   return (
@@ -19,12 +19,7 @@ const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
         <div className="relative overflow-hidden rounded-t-2xl group">
           <div className="h-[230px]">
             <img
-              src={projectImages[`${baseName}-800.png`]}
-              srcSet={`
-                ${projectImages[`${baseName}-400.png`]} 400w,
-                ${projectImages[`${baseName}-800.png`]} 800w,
-                ${projectImages[`${baseName}-1600.png`]} 1600w
-                  `}
+              src={projectImages[image400]}
               alt={project.title}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
@@ -34,7 +29,7 @@ const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
               variant="outline"
               size="lg"
               onClick={onClick}
-              className="transform text-white bg-card/85 dark:bg-card z-10 translate-y-4 group-hover:translate-y-0 mt-4 transition-transform duration-300"
+              className="transform text-white bg-card/85 dark:bg-card z-10 cursor-pointer translate-y-4 group-hover:translate-y-0 mt-4 transition-transform duration-300"
             >
               {t("projects.detailsBtn")}
             </Button>
@@ -82,7 +77,7 @@ const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
         <div className="absolute bottom-2 right-2">
           <Button
             variant="link"
-            className="text-white dark:text-slate-100"
+            className="text-white dark:text-slate-100 cursor-pointer"
             onClick={onClick}
           >
             {t("projects.details")}

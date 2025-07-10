@@ -1,12 +1,10 @@
-type IconProps = React.ComponentType<{ size: number; className?: string }>;
-
-type IconType = {
+interface ISocialIconProps {
   href: string;
-  icon: IconProps;
+  icon: React.ComponentType<{ size: number; className?: string }>;
   className: string;
   ariaLabel: string;
   size: number;
-};
+}
 
 const SocialIcon = ({
   href,
@@ -14,7 +12,7 @@ const SocialIcon = ({
   className,
   ariaLabel,
   size,
-}: IconType) => {
+}: ISocialIconProps) => {
   return (
     <div className="rounded-full bg-white">
       <a

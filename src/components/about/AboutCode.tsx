@@ -1,17 +1,17 @@
-import { motion, useAnimation } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
 import { useInView } from "../../hooks/useIntersectionObserver";
+import { getFadeInUpMotion } from "../../utils/motion";
 
-type CodeLine = {
+type CodeLineProps = {
   text: string;
   color: string;
 };
 
 const AboutCode = () => {
   const { t, i18n } = useTranslation();
-  const controls = useAnimation();
-  const [lines, setLines] = useState<CodeLine[]>([]);
+  const [lines, setLines] = useState<CodeLineProps[]>([]);
   const [typedText, setTypedText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showCursor, setShowCursor] = useState(false);
@@ -49,7 +49,6 @@ const AboutCode = () => {
           setLines((prev) => [
             ...prev,
             { text: typedText, color: codeLines[currentIndex].color },
-
           ]);
           setCurrentIndex((prev) => prev + 1);
           setTypedText("");
@@ -70,31 +69,13 @@ const AboutCode = () => {
     }
   }, [inView]);
 
-  const variants = {
-    hidden: {
-      opacity: 0,
-      y: 50,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
   return (
     <motion.div
-      variants={variants}
-      animate={controls}
+      ref={codeEditorRef}
+      {...getFadeInUpMotion(inView)}
       className="rounded-lg shadow-xl max-w-[718px]"
     >
-      <div
-        ref={codeEditorRef}
-        className="flex items-center justify-between bg-gray-800 dark:bg-slate-800/90 rounded-t-lg px-4 py-3"
-      >
+      <div className="flex items-center justify-between bg-gray-800 dark:bg-slate-800/90 rounded-t-lg px-4 py-3">
         <div className="flex space-x-2">
           <div className="w-3 h-3 rounded-full bg-red-500"></div>
           <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
@@ -120,7 +101,7 @@ const AboutCode = () => {
           {showCursor && (
             <div
               ref={cursorRef}
-              className="cursor  h-full animate-blink text-white"
+              className=" h-full animate-blink text-white"
             >
               |
             </div>

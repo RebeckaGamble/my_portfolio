@@ -1,23 +1,31 @@
-import { motion } from "framer-motion";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { sectionstyle as styles } from "../../assets/styles";
+import { useTranslation } from "react-i18next";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import { FaLocationDot } from "react-icons/fa6";
-import SocialIcon from "./SocialIcon";
-import { useTranslation } from "react-i18next";
-import { EarthCanvas } from "../canvas";
+import { contact } from "../../assets";
+import { motion } from "framer-motion";
+import { useInView } from "../../hooks/useIntersectionObserver";
 import { slideIn } from "../../utils/motion";
+import SocialIcon from "./SocialIcon";
 
 const Contact = () => {
   const { t } = useTranslation();
 
+  const [contactRef, inView] = useInView<HTMLDivElement>({
+    threshold: 0.2,
+    triggerOnce: true,
+  });
+
   return (
-    <div id="contact" className="py-20 xl:pt-20 pb-20 overflow-hidden">
-      <div className="w-full max-w-[90rem] mx-auto px-4 2xl:px-0 flex xl:flex-row flex-col-reverse gap-10">
+    <div ref={contactRef} id="contact" className="py-20 overflow-hidden">
+      <div className="w-full max-w-[90rem] mx-auto px-4 2xl:px-0 flex lg:flex-row flex-col-reverse gap-10">
         {/* Left Side - Contact Info */}
         <motion.div
           variants={slideIn("left", "tween", 0.2, 1)}
-          className="flex-[0.75] flex flex-col bg-primary dark:bg-card opacity-95 py-8 px-4 xl:px-6 rounded-2xl"
+          initial="hidden"
+          animate={inView ? "show" : "hidden"}
+          className="flex-[0.5] flex flex-col bg-primary dark:bg-card opacity-95 py-8 px-4 xl:px-6 rounded-2xl"
         >
           <h2 className={styles.sectionHeadText}>{t("contact.title")}</h2>
           <h3 className={styles.sectionSubText}>{t("contact.subtitle")}</h3>
@@ -38,8 +46,10 @@ const Contact = () => {
               <p className="flex flex-row items-center">
                 <span className="text-purple/90 dark:text-secondary-foreground pr-2">
                   <AiOutlineMail className="mt-1" size={20} />
-                </span>{" "}
-                rebeckagamble@hotmail.com
+                </span>
+                <a href="mailto:rebeckagamble@hotmail.com">
+                  rebeckagamble@hotmail.com
+                </a>
               </p>
             </div>
           </div>
@@ -72,12 +82,18 @@ const Contact = () => {
             </div>
           </div>
         </motion.div>
-        {/* Right Side - Earth Canvas */}
+        {/* Contact Img */}
         <motion.div
           variants={slideIn("right", "tween", 0.2, 1)}
-          className="xl:flex-1 h-[350px] md:h-[550px] xl:h-auto xl:max-w-[692px]"
+          initial="hidden"
+          animate={inView ? "show" : "hidden"}
+          className="lg:flex-[0.5] h-[350px] overflow-hidden rounded-2xl md:h-[510px] lg:h-[556px] xl:h-auto w-full"
         >
-          <EarthCanvas />
+          <img
+            src={contact}
+            className=" w-full h-full object-cover rounded-2xl opacity-90"
+            alt="workspace"
+          />
         </motion.div>
       </div>
     </div>

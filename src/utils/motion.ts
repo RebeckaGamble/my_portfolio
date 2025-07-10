@@ -1,4 +1,3 @@
-
 type Direction = "left" | "right" | "up" | "down";
 type TransitionType = "spring" | "tween" | "inertia" | string;
 
@@ -25,3 +24,18 @@ export const slideIn = (
     },
   };
 };
+
+export const fadeInUpVariant = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5 },
+  },
+};
+
+export const getFadeInUpMotion = (inView: boolean) => ({
+  initial: "hidden",
+  animate: inView ? "show" : "hidden",
+  variants: fadeInUpVariant,
+});

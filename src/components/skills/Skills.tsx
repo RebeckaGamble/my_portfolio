@@ -1,53 +1,21 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
-import SkillsCard, { Skill } from "./SkillsCard";
+import SkillsCard from "./SkillsCard";
 import { useTranslation } from "react-i18next";
 import { sectionstyle as styles } from "../../assets/styles";
-import {
-  html,
-  css,
-  javascript,
-  typescript,
-  react,
-  vue,
-  nextjs,
-  redux,
-  tailwind,
-  vite,
-  github1,
-  aws,
-  express,
-  node,
-  mysql,
-  firebase,
-  cypress
-} from "../../assets"
-
-export const skillsData: Skill[] = [
-  { id: "Frontend", src: html, alt: "HTML" },
-  { id: "Frontend", src: css, alt: "CSS" },
-  { id: "Frontend", src: javascript, alt: "JavaScript" },
-  { id: "Frontend", src: typescript, alt: "TypeScript" },
-  { id: "Frontend", src: react, alt: "React" },
-  { id: "Frontend", src: vue, alt: "Vue.js" },
-  { id: "Frontend", src: nextjs, alt: "Next.js" },
-  { id: "Frontend", src: redux, alt: "Redux" },
-  { id: "Frontend", src: tailwind, alt: "Tailwind" },
-  { id: "Frontend", src: vite, alt: "Vite" },
-  { id: "Tools", src: github1, alt: "Github" },
-  { id: "Tools", src: aws, alt: "AWS" },
-  { id: "Backend", src: express, alt: "Express" },
-  { id: "Backend", src: node, alt: "Node.js" },
-  { id: "Tools", src: mysql, alt: "MySQL" },
-  { id: "Tools", src: firebase, alt: "Firebase" },
-  { id: "Tools", src: cypress, alt: "Cypress" },
-];
-
-export type SkillCategory = "All" | "Frontend" | "Backend" | "Tools";
+import { skillsData } from "./SkillsData";
+import { motion } from "framer-motion";
+import { useInView } from "../../hooks/useIntersectionObserver";
+import { getFadeInUpMotion } from "../../utils/motion";
+import { SkillCategory } from "../../types/skillTypes";
 
 const Skills = () => {
   const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = useState<SkillCategory>("All");
+
+  const [skillRef, inView] = useInView<HTMLDivElement>({
+    threshold: 0.2,
+    triggerOnce: true,
+  });
 
   const sortedSkillsData = skillsData.sort((a, b) =>
     a.alt.localeCompare(b.alt)
@@ -65,12 +33,11 @@ const Skills = () => {
   const categories: SkillCategory[] = ["All", "Backend", "Frontend", "Tools"];
 
   return (
-    <section id="skills" className="py-20 secondary-gradient">
+    <section id="skills" className="py-20 second-gradient">
       <div className="w-full max-w-[90rem] mx-auto px-4 2xl:px-0">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          ref={skillRef}
+          {...getFadeInUpMotion(inView)}
           className="flex flex-col items-start mb-12"
         >
           <h2 className={styles.sectionHeadText}>{t("skills.title")}</h2>
@@ -93,7 +60,7 @@ const Skills = () => {
             ))}
           </ul>
         </div>
-        <div className="flex flex-wrap justify-center mx-auto gap-4">
+        <div className="flex flex-wrap justify-center items-baseline mx-auto min-h-[148px] gap-4">
           {filteredSkills.map((skill, index) => (
             <SkillsCard
               key={index}

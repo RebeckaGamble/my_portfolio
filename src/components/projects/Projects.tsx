@@ -5,7 +5,6 @@ import { sectionstyle as styles } from "../../assets/styles";
 import { Button } from "../ui/button";
 import { ExternalLink } from "lucide-react";
 import ProjectCard from "./ProjectCard";
-
 import {
   Dialog,
   DialogContent,
@@ -14,22 +13,10 @@ import {
   DialogTitle,
 } from "../ui/dialog";
 import { projectImages } from "../../assets/projects";
+import { useInView } from "../../hooks/useIntersectionObserver";
+import { getFadeInUpMotion } from "../../utils/motion";
+import { Project } from "../../types/projectTypes";
 
-export type Project = {
-  id: string;
-  title: string;
-  description: string;
-  fullDescription?: string;
-  image: string;
-  technologies: {
-    name: string;
-    color: string;
-  }[];
-  github?: string;
-  demo?: string;
-  featured?: boolean;
-  category: string[];
-};
 const INITIAL_COUNT = 4;
 
 const Projects = () => {
@@ -40,9 +27,14 @@ const Projects = () => {
 
   const projects = t("projects.items", { returnObjects: true }) as Project[];
 
+  const [projectRef, inView] = useInView<HTMLDivElement>({
+    threshold: 0.2,
+    triggerOnce: true,
+  });
+
   const filteredProjects = projects.filter((project) => {
-  return filter === "all" || project.category.includes(filter);
-});
+    return filter === "all" || project.category.includes(filter);
+  });
 
   const toggleVisible = () => {
     if (visibleCount >= filteredProjects.length) {
@@ -57,26 +49,22 @@ const Projects = () => {
   };
 
   return (
-    <section
-      id="projects"
-      className="py-20 min-h-[500px] bg-primary dark:bg-primary"
-    >
-      <div className="mx-auto px-4 max-w-[90rem] 2xl:px-0">
+    <section id="projects" className="py-20 bg-primary">
+      <div className="w-full mx-auto px-4 max-w-[90rem] 2xl:px-0">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex flex-col items-start mb-12"
+          ref={projectRef}
+          {...getFadeInUpMotion(inView)}
+          className="flex flex-col items-start"
         >
           <h2 className={styles.sectionHeadText}>{t("projects.title")}</h2>
           <h3 className={styles.sectionSubText}>{t("projects.subtitle")}</h3>
-          <div className="flex flex-col mt-10 text-slate-900 dark:text-white text-[17px] max-w-3xl leading-[28px]">
-            <p> {t("projects.text")}</p>
-            <p> {t("projects.text2")}</p>
-            <p> {t("projects.text3")}</p>
-            <p> {t("projects.text4")}</p>
-          </div>
         </motion.div>
+        <div className="flex flex-col mt-10 mb-12 text-primary-foreground text-[17px] max-w-3xl leading-[28px]">
+          <p> {t("projects.text")}</p>
+          <p> {t("projects.text2")}</p>
+          <p> {t("projects.text3")}</p>
+          <p> {t("projects.text4")}</p>
+        </div>
         {/* Tech panel */}
         <div className="w-full px-4 md:px-10 lg:px-20 xl:px-[100px] py-4 md:py-6 rounded-lg bg-card/85 dark:bg-card text-[18px] shadow-md my-10">
           <ul className="grid grid-cols-2 sm:grid-cols-4 md:flex md:flex-wrap md:justify-evenly gap-4 lg:gap-6 xl:gap-10 font-semibold justify-center">
@@ -84,7 +72,7 @@ const Projects = () => {
               ([key, value]) => (
                 <li key={key} onClick={() => setFilter(key)}>
                   <button
-                    className={`border-none w-full md:px-6 py-2 rounded-lg bg-inherit text-slate-90 cursor-pointer text-[16px] ${
+                    className={`border-none w-full md:px-6 py-2 rounded-lg bg-inherit cursor-pointer  ${
                       filter === key
                         ? styles.tableBtn
                         : styles.tableBtnNotActive
@@ -98,31 +86,26 @@ const Projects = () => {
           </ul>
         </div>
         {/* Project Cards */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 items-stretch"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 items-stretch">
           {filteredProjects.slice(0, visibleCount).map((project, index) => (
-            <motion.div
+            <div
               key={index}
-              whileHover={{ y: -5 }}
-              className="rounded-lg overflow-hidden justify-center flex transition-all duration-300"
+              className="rounded-lg overflow-hidden justify-center flex transition-all duration-300 hover:-translate-y-1"
             >
               <ProjectCard
                 onClick={() => handleCardClick(project)}
                 project={project}
               />
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
         {/* Project details window */}
         {selectedProject && (
           <Dialog
             open={!!selectedProject}
             onOpenChange={() => setSelectedProject(null)}
           >
-            <DialogContent className="xs:max-w-[600px] w-full mx-auto max-h-[680px] bg-white dark:bg-slate-900 text-black dark:text-white overflow-y-auto">
+            <DialogContent className="max-w-[800px] w-full mx-auto max-h-[880px] bg-primary text-primary-foreground overflow-y-auto">
               <DialogHeader>
                 <DialogTitle className="text-2xl text-start">
                   {selectedProject.title}
@@ -136,33 +119,13 @@ const Projects = () => {
                 </DialogDescription>
               </DialogHeader>
               <div className="h-full flex flex-col justify-between">
-                <div className="h-auto min-h-[200px] max-h-[300px] mb-4 rounded-lg border-y border-slate-200">
+                <div className="h-auto min-h-[200px] max-h-[500px] mb-4 rounded-lg border-y border-slate-200">
                   <img
                     src={
                       projectImages[
                         `${selectedProject.image.replace(".png", "-800.png")}`
                       ]
                     }
-                    srcSet={`
-                      ${
-                        projectImages[
-                          `${selectedProject.image.replace(".png", "-400.png")}`
-                        ]
-                      } 400w,
-                      ${
-                        projectImages[
-                          `${selectedProject.image.replace(".png", "-800.png")}`
-                        ]
-                      } 800w,
-                      ${
-                        projectImages[
-                          `${selectedProject.image.replace(
-                            ".png",
-                            "-1600.png"
-                          )}`
-                        ]
-                      } 1600w
-                    `}
                     alt={selectedProject.title}
                     className="w-full h-full object-cover rounded-lg mb-6"
                   />
@@ -179,7 +142,7 @@ const Projects = () => {
                     asChild
                     size="lg"
                     variant="link"
-                    className="bg-slate-900 border text-white hover:animate-pulse  transition-all duration-300 ease-in-out rounded-md flex justify-center items-center cursor-pointer"
+                    className="bg-slate-900 border text-white hover:animate-pulse transition-all duration-300 ease-in-out rounded-md flex justify-center items-center cursor-pointer"
                   >
                     <a
                       href={selectedProject.github}

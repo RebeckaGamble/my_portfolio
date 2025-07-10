@@ -1,20 +1,20 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Button } from "../components/ui/button";
-import { jag400 } from "../assets";
+import { me } from "../assets";
 
 const Hero = () => {
   const { t } = useTranslation();
 
   return (
     <section id="hero" className="min-h-screen flex items-center">
-      <div className="max-w-[90rem] mx-auto px-4 2xl:px-2 mb-[84px]">
-        <div className="purple-gradient w-[250px] h-[250px] mb-6 lg:hidden mx-auto p-1 rounded-full">
+      <div className="max-w-[90rem] mx-auto px-4 2xl:px-2 sm:mb-[84px]">
+        <div className="black-gradient w-[250px] h-[250px] mb-6 lg:hidden mx-auto p-1 rounded-full">
           <div className="bg-primary w-full h-auto p-1 rounded-full">
             <img
-              src={jag400}
+              src={me}
               alt="Rebecka"
-              className="w-auto h-full rounded-full object-cover object-center"
+              className="w-full h-auto rounded-full object-remain object-center"
             />
           </div>
         </div>
@@ -60,17 +60,12 @@ const Hero = () => {
               </div>
             </div>
           </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="hidden lg:flex justify-center self-center"
-          >
+          <div className="hidden lg:flex justify-center self-center">
             <div className="relative group">
               <div className="black-gradient group-hover:secondary-gradient p-0.5 rounded-full">
                 <div className="bg-primary group-hover:bg-transparent p-1 rounded-full">
                   <img
-                    src={jag400}
+                    src={me}
                     alt="Rebecka"
                     className="w-[350px] h-[350px] rounded-full object-cover group-hover:opacity-0"
                   />
@@ -87,7 +82,7 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
