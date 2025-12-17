@@ -25,7 +25,7 @@ const Contact = () => {
           variants={slideIn("left", "tween", 0.2, 1)}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
-          className="flex-[0.5] flex flex-col bg-primary dark:bg-card opacity-95 py-8 px-4 xl:px-6 rounded-2xl"
+          className="flex-[0.5] flex flex-col bg-primary dark:opacity-90 opacity-95 py-8 px-4 xl:px-6 rounded-2xl"
         >
           <h2 className={styles.sectionHeadText}>{t("contact.title")}</h2>
           <h3 className={styles.sectionSubText}>{t("contact.subtitle")}</h3>

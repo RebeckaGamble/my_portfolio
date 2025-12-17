@@ -69,6 +69,7 @@ html {
     );
      --color-second-gradient: linear-gradient(
       to top,
+     oklch(0.129 0.042 264.695),
      oklch(0.129 0.042 264.695)
     );
 

@@ -61,14 +61,6 @@ export default {
     items: [
       {
         type: "education",
-        title: "AI: Basic Practical Machine Learning",
-        company: "Mölk Education",
-        period: "Apr 2025 - Jul 2025",
-        description:
-          "Basic knowledge of supervised/unsupervised learning, data management, model evaluation, and neural networks. Hands-on experience with Python and libraries such as NumPy, Pandas, Matplotlib, Scikit-Learn, and Pillow in Jupyter Notebook for data analysis and machine learning applications. Trained and fine-tuned models using logistic regression and other ML techniques.",
-      },
-      {
-        type: "education",
         title: "Frontend Developer",
         company: "Chas Academy",
         period: "Aug 2023 - Jun 2025",
@@ -335,7 +327,7 @@ export default {
   contact: {
     title: "Get in touch",
     subtitle: "Contact",
-    availability: "I am available for full-time positions from Q2 2025.",
+    availability: "I am available for full-time positions from Q1 2026.",
     contact_message: "Contact me and let's talk.",
     location: "Stockholm, Sweden",
     connect_with_me: "Connect With Me",

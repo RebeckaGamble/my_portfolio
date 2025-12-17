@@ -61,14 +61,6 @@ export default {
     items: [
       {
         type: "education",
-        title: "AI: Grundläggande praktisk maskininlärning",
-        company: "Mölk Utbildning",
-        period: "Apr 2025 - Jul 2025",
-        description:
-          "Grundläggande kunskaper i övervakad/oövervakad inlärning, datahantering, modellutvärdering och neuronnät. Praktisk erfarenhet av Python samt bibliotek som NumPy, Pandas, Matplotlib, Scikit-Learn och Pillow i Jupyter Notebook för dataanalys och maskininlärningsapplikationer. Tränat och finjusterat modeller med logistisk regression och andra ML-tekniker.",
-      },
-      {
-        type: "education",
         title: "Frontend-utvecklare",
         company: "Chas Academy",
         period: "Aug 2023 - Jun 2025",
@@ -334,7 +326,7 @@ export default {
   contact: {
     title: "Kom i kontakt",
     subtitle: "Kontakt",
-    availability: "Jag är tillgänglig för heltidsanställning från juli 2025.",
+    availability: "Jag är tillgänglig för heltidsanställning från januari 2026.",
     contact_message: "Kontakta mig så pratar vi mer.",
     location: "Stockholm",
     connect_with_me: "",

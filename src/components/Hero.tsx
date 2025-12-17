@@ -7,7 +7,7 @@ const Hero = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="hero" className="min-h-screen flex items-center">
+    <section id="hero" className="min-h-screen py-20 flex items-center">
       <div className="max-w-[90rem] mx-auto px-4 2xl:px-2 sm:mb-[84px]">
         <div className="black-gradient w-[250px] h-[250px] mb-6 lg:hidden mx-auto p-1 rounded-full">
           <div className="bg-primary w-full h-auto p-1 rounded-full">
