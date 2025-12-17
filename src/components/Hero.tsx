@@ -8,7 +8,7 @@ const Hero = () => {
 
   return (
     <section id="hero" className="relative min-h-[100svh] flex items-center overflow-hidden">
-      <div className="max-w-[90rem] min-h-full mx-auto px-4 2xl:px-2 sm:pb-[84px]">
+      <div className="max-w-[90rem] py-[60px] min-h-full mx-auto px-4 2xl:px-2 sm:pb-[84px]">
         <div className="black-gradient w-[250px] h-[250px] mb-6 lg:hidden mx-auto p-1 rounded-full">
           <div className="bg-primary w-full h-auto p-1 rounded-full">
             <img
