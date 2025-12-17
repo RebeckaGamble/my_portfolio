@@ -7,8 +7,8 @@ const Hero = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="hero" className="min-h-screen flex items-center">
-      <div className="max-w-[90rem] h-full py-20 mx-auto px-4 2xl:px-2 sm:pb-[84px]">
+    <section id="hero" className="relative min-h-[100svh] flex items-center overflow-hidden">
+      <div className="max-w-[90rem] min-h-full mx-auto px-4 2xl:px-2 sm:pb-[84px]">
         <div className="black-gradient w-[250px] h-[250px] mb-6 lg:hidden mx-auto p-1 rounded-full">
           <div className="bg-primary w-full h-auto p-1 rounded-full">
             <img
